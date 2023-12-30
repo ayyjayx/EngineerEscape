@@ -9,7 +9,8 @@ public class RotatingClock : MonoBehaviour
     private float rotationAngle = 30f;
     [SerializeField] float interactableDistance = 2f;
     private GameObject player;
-    private int selectedHour;
+    private int currentHour;
+    [SerializeField] int offset = 0;
     [SerializeField] int chosenHour = 3;
     private bool isSolved = false;
 
@@ -32,14 +33,14 @@ public class RotatingClock : MonoBehaviour
             {
                 isRotating = false;
                 rotationLimit = 0f;
-                selectedHour = int.Parse(System.DateTime.Now.ToString("hh"));
+                currentHour = int.Parse(System.DateTime.Now.ToString("hh"));
                 chosenHour += 1;
                 if (chosenHour > 12) chosenHour = 1;
                 Debug.Log(chosenHour);
-                Debug.Log(selectedHour);
+                Debug.Log(currentHour);
                 Debug.Log(isSolved);
             }
-            if (chosenHour == selectedHour) { isSolved = true; }
+            if (chosenHour == currentHour + offset) { isSolved = true; }
             else { isSolved = false; }
         }
     }
