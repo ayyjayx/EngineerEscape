@@ -13,6 +13,9 @@ public class RotatingClock : MonoBehaviour
     [SerializeField] int offset = 0;
     [SerializeField] int chosenHour = 3;
     private bool isSolved = false;
+    [SerializeField] ClockGame clockGame;
+
+    public bool GetIsSolved() { return isSolved; }
 
     private void OnMouseUpAsButton()
     {
@@ -36,12 +39,13 @@ public class RotatingClock : MonoBehaviour
                 currentHour = int.Parse(System.DateTime.Now.ToString("hh"));
                 chosenHour += 1;
                 if (chosenHour > 12) chosenHour = 1;
-                Debug.Log(chosenHour);
-                Debug.Log(currentHour);
+                int targetHour = currentHour;
+                if (offset != 0) { targetHour = (currentHour + offset) % 12; }
+                if (chosenHour == targetHour) { isSolved = true; }
+                else { isSolved = false; }
                 Debug.Log(isSolved);
+                clockGame.CheckIsSolved();
             }
-            if (chosenHour == currentHour + offset) { isSolved = true; }
-            else { isSolved = false; }
         }
     }
 
