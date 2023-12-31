@@ -121,11 +121,11 @@ public class HanoiGame : MonoBehaviour
         int tableCount = blocks.Length;
         for (int i = 0; i < tableCount; i++)
         {
-            GameObject newInstance = Instantiate(blocks[i], tf);
+            GameObject newInstance = Instantiate(blocks[i]);
             newInstance.transform.position = new Vector3(
-                newInstance.transform.position.x,
-                newInstance.transform.position.y + 1.1f + 0.2f * i,
-                newInstance.transform.position.z + stacksDistanceZ
+                startTower.towerObject.transform.position.x,
+                startTower.towerObject.transform.position.y + 0.2f * i,
+                startTower.towerObject.transform.position.z
             );
             startTower.Push(newInstance);
         }
@@ -154,7 +154,7 @@ public class HanoiGame : MonoBehaviour
 
     private bool ValidMove()
     {
-        if (source.Count() == 0) return true;
+        if (source.Count() == 0) return false;
         else if (destination.Count() == 0) return true;
 
         GameObject sourceBrick = source.Peek();
@@ -207,17 +207,6 @@ public class HanoiGame : MonoBehaviour
         }
         isMoving = false;
     }
-
-    // private void MoveBrick()
-    // {
-    //     GameObject brick = source.Pop();
-    //     brick.transform.position = new Vector3(
-    //         brick.transform.position.x,
-    //         destination.towerObject.transform.position.y + 0.2f * destination.Count(),
-    //         destination.towerObject.transform.position.z
-    //     );
-    //     destination.Push(brick);
-    // }
 
     private void RestartButtons()
     {

@@ -11,6 +11,7 @@ public class SlidingPuzzle : MonoBehaviour
     [SerializeField] List<GraphNode> matchedPuzzles;     // Lista dopasowanych puzli.
     [SerializeField] GameObject puzzleObject;
     [SerializeField] List<Material> puzzleMaterials;
+    [SerializeField] Material solvedMaterial;
     private bool isMoving = false;
 
     public bool GetIsSolved() { return isSolved; }
@@ -123,5 +124,16 @@ public class SlidingPuzzle : MonoBehaviour
     {
         if (nodes.Length - 1 == matchedPuzzles.Count)
             isSolved = true;
+        if (isSolved)
+        {
+            int nodeId = 0;
+            foreach (GraphNode node in nodes)
+            {
+                node.SetId(nodeId);
+                MeshRenderer nodeMeshRenderer = node.GetComponentInParent<MeshRenderer>();
+                nodeMeshRenderer.material = solvedMaterial;
+                nodeId++;
+            }
+        }
     }
 }

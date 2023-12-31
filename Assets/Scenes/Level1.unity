@@ -968,6 +968,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 43b4ce7e9c5af0341801e8bb62681185, type: 2}
   - {fileID: 2100000, guid: 8424f8aa39e824b4a9e1d03a1a6861f1, type: 2}
   - {fileID: 2100000, guid: 5c5a54cac992212479a1a5d816d8aec3, type: 2}
+  solvedMaterial: {fileID: 2100000, guid: e8051d201dcd9544888ff6b06b7b3c48, type: 2}
 --- !u!4 &266978544
 Transform:
   m_ObjectHideFlags: 0

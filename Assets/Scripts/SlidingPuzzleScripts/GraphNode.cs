@@ -46,7 +46,7 @@ public class GraphNode : MonoBehaviour
 
     private void OnMouseUpAsButton() {
         Debug.Log("Click detected.");
-        if (!slidingPuzzle.GetIsMoving()) { slidingPuzzle.MakeMove(this); }
+        if (!slidingPuzzle.GetIsMoving() && !slidingPuzzle.GetIsSolved()) { slidingPuzzle.MakeMove(this); }
     }
 
     public GraphNode FindEmptyNeighbour()
