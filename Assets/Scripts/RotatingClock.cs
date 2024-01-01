@@ -11,11 +11,11 @@ public class RotatingClock : MonoBehaviour
     private GameObject player;
     private int currentHour;
     [SerializeField] int offset = 0;
-    [SerializeField] int chosenHour = 3;
-    private bool isSolved = false;
+    [SerializeField] int chosenHour = 1;
+    private bool isClockSolved = false;
     [SerializeField] ClockGame clockGame;
 
-    public bool GetIsSolved() { return isSolved; }
+    public bool GetIsClockSolved() { return isClockSolved; }
 
     private void OnMouseUpAsButton()
     {
@@ -41,10 +41,13 @@ public class RotatingClock : MonoBehaviour
                 if (chosenHour > 12) chosenHour = 1;
                 int targetHour = currentHour;
                 if (offset != 0) { targetHour = (currentHour + offset) % 12; }
-                if (chosenHour == targetHour) { isSolved = true; }
-                else { isSolved = false; }
-                Debug.Log(isSolved);
-                clockGame.CheckIsSolved();
+                if (chosenHour == targetHour)
+                {
+                    isClockSolved = true;
+                    GetComponent<Renderer>().material.color = Color.red;
+                    clockGame.CheckIsSolved();
+                }
+                else { isClockSolved = false; }
             }
         }
     }
@@ -61,5 +64,5 @@ public class RotatingClock : MonoBehaviour
         else return true;
     }
 
-    public bool CheckIsSolved() { return isSolved; }
+    public bool CheckIsSolved() { return isClockSolved; }
 }

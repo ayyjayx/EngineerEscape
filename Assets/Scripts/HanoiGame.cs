@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class HanoiGame : MonoBehaviour
+public class HanoiGame : GameState
 {
     [SerializeField] GameObject[] blocks;
 
@@ -20,7 +20,6 @@ public class HanoiGame : MonoBehaviour
     Tower destination;
 
     float stacksDistanceZ = 2f;
-    public bool isSolved = false;
     public bool isMoving = false;
 
     private class Tower
@@ -78,6 +77,7 @@ public class HanoiGame : MonoBehaviour
     Tower startTower;
     Tower midTower;
     Tower finalTower;
+    
 
     private void Start()
     {
@@ -149,6 +149,11 @@ public class HanoiGame : MonoBehaviour
                 }
             }
             if (finalTower.Count() == blocks.Count()) isSolved = true;
+        }
+        if (needChecking && GetIsSolved())
+        {
+            levelState.UpdateLevelState(GetIsSolved());
+            needChecking = false;
         }
     }
 

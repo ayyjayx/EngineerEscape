@@ -1064,6 +1064,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20139cb4e4f9f8349a111b650f893e96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelState: {fileID: 831579725}
+  isSolved: 0
+  needChecking: 1
   nodes: []
   matchedPuzzles: []
   puzzleObject: {fileID: 1817243136021202930, guid: 429a60f34d6a37a40a16436d87897808, type: 3}
@@ -1094,6 +1097,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000012314331726, guid: 6e659ebd79ad8c5408cd18c2a0e534eb, type: 3}
   m_PrefabInstance: {fileID: 2128813496}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &274494595 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+  m_PrefabInstance: {fileID: 589048827}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1632c71c96ba074f9467b0ccb0a33e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &281782845
 GameObject:
   m_ObjectHideFlags: 0
@@ -2157,6 +2171,10 @@ PrefabInstance:
       propertyPath: clockGame
       value: 
       objectReference: {fileID: 1879917190}
+    - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+      propertyPath: chosenHour
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6611337182585302702, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_Name
       value: ClockTower (2)
@@ -2494,6 +2512,7 @@ GameObject:
   - component: {fileID: 831579723}
   - component: {fileID: 831579722}
   - component: {fileID: 831579721}
+  - component: {fileID: 831579725}
   m_Layer: 6
   m_Name: Plane
   m_TagString: Untagged
@@ -2588,6 +2607,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &831579725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831579720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79475aa8c65b68640a813bc0d63568a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStates: []
+  gamesSolved: 0
 --- !u!1 &887399212
 GameObject:
   m_ObjectHideFlags: 0
@@ -2847,6 +2880,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8174377221174548180, guid: 274ab51925b6980499111d77d23b57a1, type: 3}
   m_PrefabInstance: {fileID: 1247778289}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &951457896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+  m_PrefabInstance: {fileID: 415783798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1632c71c96ba074f9467b0ccb0a33e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &953879466
 GameObject:
   m_ObjectHideFlags: 0
@@ -4151,7 +4195,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1364822590
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5024,6 +5068,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809640011}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1821525420 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+  m_PrefabInstance: {fileID: 4089398257800867714}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1632c71c96ba074f9467b0ccb0a33e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1826374564
 GameObject:
   m_ObjectHideFlags: 0
@@ -5426,8 +5481,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef467ea8ef58c6343abe243fe6b80fca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clocks: []
+  levelState: {fileID: 831579725}
   isSolved: 0
+  needChecking: 1
+  clocks:
+  - {fileID: 274494595}
+  - {fileID: 951457896}
+  - {fileID: 1821525420}
 --- !u!4 &1879917191
 Transform:
   m_ObjectHideFlags: 0
@@ -5441,9 +5501,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1389214587}
-  - {fileID: 1094420413}
   - {fileID: 97598036}
+  - {fileID: 1094420413}
+  - {fileID: 1389214587}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1896709619
@@ -5520,6 +5580,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 423901219803882148, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
+      propertyPath: interactableDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 423901219803882148, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
       propertyPath: buttonEnabledMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 8424f8aa39e824b4a9e1d03a1a6861f1, type: 2}
@@ -5568,6 +5632,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2413186198119635801, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
+      propertyPath: interactableDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2413186198119635801, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
       propertyPath: buttonEnabledMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 8424f8aa39e824b4a9e1d03a1a6861f1, type: 2}
@@ -5576,6 +5644,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100000, guid: e21e73ea04375eb4ba09540cc7d5bfdf, type: 2}
     - target: {fileID: 3719013867635943372, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
+      propertyPath: interactableDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3719013867635943372, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
       propertyPath: buttonEnabledMaterial
       value: 
       objectReference: {fileID: 2100000, guid: 8424f8aa39e824b4a9e1d03a1a6861f1, type: 2}
@@ -5583,6 +5655,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 2d2d17b0f812c24428c3f294540c2f35, type: 2}
+    - target: {fileID: 4318596488067991860, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
+      propertyPath: levelState
+      value: 
+      objectReference: {fileID: 831579725}
     - target: {fileID: 4318596488067991860, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
       propertyPath: blocks.Array.size
       value: 3

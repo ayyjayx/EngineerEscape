@@ -2,12 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClockGame : MonoBehaviour
+public class ClockGame : GameState
 {
     [SerializeField] RotatingClock[] clocks;
-    [SerializeField] bool isSolved;
-
-    public bool GetIsSolved() { return isSolved; }
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +15,7 @@ public class ClockGame : MonoBehaviour
     {
         foreach (RotatingClock clock in clocks)
         {
-            if (!clock.GetIsSolved())
+            if (!clock.GetIsClockSolved())
             {
                 isSolved = false;
                 return;
@@ -26,9 +23,11 @@ public class ClockGame : MonoBehaviour
         }
         isSolved = true;
     }
-    // // Update is called once per frame
-    // void Update()
-    // {
-        
-    // }
+    private void Update() {
+        if (needChecking && GetIsSolved())
+        {
+            levelState.UpdateLevelState(GetIsSolved());
+            needChecking = false;
+        }
+    }
 }

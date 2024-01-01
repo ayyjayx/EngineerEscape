@@ -19,7 +19,7 @@ public class HanoiButton : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        if (!hanoiGame.isSolved && !hanoiGame.isMoving)
+        if (!hanoiGame.GetIsSolved() && !hanoiGame.isMoving)
         {
             if (isButtonInRange())
             {
@@ -29,7 +29,7 @@ public class HanoiButton : MonoBehaviour
     }
     private void Update() {
 
-        if (hanoiGame.isSolved)
+        if (hanoiGame.GetIsSolved())
         {
             GetComponent<Renderer>().material.color = Color.gray;
         }
