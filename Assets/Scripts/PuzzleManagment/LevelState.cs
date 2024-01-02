@@ -7,11 +7,13 @@ public class LevelState : MonoBehaviour
 {
     [SerializeField] GameState[] gameStates;
     [SerializeField] int gamesSolved = 0;
+    [SerializeField] OpenDoor exitDoor;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameStates = FindObjectsOfType<GameState>(); 
+        gameStates = FindObjectsOfType<GameState>();
+        exitDoor = FindObjectOfType<OpenDoor>();
     }
 
     // Update is called once per frame
@@ -24,8 +26,9 @@ public class LevelState : MonoBehaviour
     private void Update() {
         if (gamesSolved == gameStates.Length)
         {
-            Cursor.lockState = CursorLockMode.Confined;
-            SceneManager.LoadScene("Menu");
+            // Cursor.lockState = CursorLockMode.Confined;
+            exitDoor.SetShouldOpen(true);
+            // SceneManager.LoadScene("Menu");
         }
     }
 }
