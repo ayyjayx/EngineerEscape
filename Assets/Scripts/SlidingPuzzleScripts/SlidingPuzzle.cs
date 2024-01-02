@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class SlidingPuzzle : MonoBehaviour
+public class SlidingPuzzle : GameState
 {
-    bool isSolved = false;
 
     [SerializeField] GraphNode[] nodes;                  // Tablica wszystkich wezłów grafu.
     [SerializeField] List<GraphNode> matchedPuzzles;     // Lista dopasowanych puzli.
     [SerializeField] GameObject puzzleObject;
     [SerializeField] List<Material> puzzleMaterials;
+    [SerializeField] Material solvedMaterial;
     private bool isMoving = false;
 
-    public bool GetIsSolved() { return isSolved; }
     public bool GetIsMoving() { return isMoving; }
 
     // Start is called before the first frame update
@@ -55,7 +54,6 @@ public class SlidingPuzzle : MonoBehaviour
         {
             node.SetId(nodeId);
             MeshRenderer nodeMeshRenderer = node.GetComponentInParent<MeshRenderer>();
-            Debug.Log(nodeId);
             nodeMeshRenderer.material = puzzleMaterials[nodeId];
             if (node.IsMatched()) { matchedPuzzles.Append(node); }
             nodeId++;
@@ -123,5 +121,21 @@ public class SlidingPuzzle : MonoBehaviour
     {
         if (nodes.Length - 1 == matchedPuzzles.Count)
             isSolved = true;
+        if (isSolved)
+        {
+            int nodeId = 0;
+            foreach (GraphNode node in nodes)
+            {
+                node.SetId(nodeId);
+                MeshRenderer nodeMeshRenderer = node.GetComponentInParent<MeshRenderer>();
+                nodeMeshRenderer.material = solvedMaterial;
+                nodeId++;
+            }
+        }
+        if (needChecking && GetIsSolved())
+        {
+            levelState.UpdateLevelState(GetIsSolved());
+            needChecking = false;
+        }
     }
 }
