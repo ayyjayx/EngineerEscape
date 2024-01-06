@@ -45,11 +45,7 @@ public class RotatingClock : MonoBehaviour
 
             if (rotationLimit >= rotationAngle)
             {
-                Quaternion targetRotation = Quaternion.Euler(initialRotation.x, initialRotation.y + rotationAngle, initialRotation.z);
-
-                transform.rotation = targetRotation;
-
-                initialRotation = transform.eulerAngles;
+                AdjustRotation();
 
                 SetNextHour();
 
@@ -59,6 +55,13 @@ public class RotatingClock : MonoBehaviour
                 UpdateClockState(GetCurrentHourWithOffset());
             }
         }
+    }
+
+    private void AdjustRotation()
+    {
+        Quaternion targetRotation = Quaternion.Euler(initialRotation.x, initialRotation.y + rotationAngle, initialRotation.z);
+        transform.rotation = targetRotation;
+        initialRotation = transform.eulerAngles;
     }
 
     private void UpdateClockState(int targetHour)
