@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 964f857dd6104934ba0c3f09b4580271, type: 2}
+  - {fileID: 2100000, guid: b86df3f4c9d1d57449df8de11db1baa7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,8 +119,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableDistance: 1
-  buttonEnabledMaterial: {fileID: 0}
   isClicked: 0
+  buttonDefaultMaterial: {fileID: 2100000, guid: b86df3f4c9d1d57449df8de11db1baa7, type: 2}
+  buttonClickedMaterial: {fileID: 2100000, guid: 5601516da5629ae49929f1bcd0ca22e6, type: 2}
+  buttonSolvedMaterial: {fileID: 2100000, guid: 2bedb8470bd89da489a595de3ac834ed, type: 2}
 --- !u!1 &5248369689288741075
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +186,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 964f857dd6104934ba0c3f09b4580271, type: 2}
+  - {fileID: 2100000, guid: b86df3f4c9d1d57449df8de11db1baa7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,8 +242,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableDistance: 1
-  buttonEnabledMaterial: {fileID: 0}
   isClicked: 0
+  buttonDefaultMaterial: {fileID: 2100000, guid: b86df3f4c9d1d57449df8de11db1baa7, type: 2}
+  buttonClickedMaterial: {fileID: 2100000, guid: 5601516da5629ae49929f1bcd0ca22e6, type: 2}
+  buttonSolvedMaterial: {fileID: 2100000, guid: 2bedb8470bd89da489a595de3ac834ed, type: 2}
 --- !u!1 &5504945990857743739
 GameObject:
   m_ObjectHideFlags: 0
@@ -304,7 +308,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7704e3ba659e01348b3c9c96dd201837, type: 2}
+  - {fileID: 2100000, guid: bc005c881dea0a243b900e879de2d617, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -395,11 +399,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 720781a92ad7748469577983aa15fe0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelState: {fileID: 0}
+  isSolved: 0
+  needChecking: 1
   blocks: []
   startButton: {fileID: 6224396556862539054}
   midButton: {fileID: 5248369689288741075}
   finalButton: {fileID: 4893663476259395823}
-  isSolved: 0
   isMoving: 0
 --- !u!1 &6224396556862539054
 GameObject:
@@ -464,7 +470,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 964f857dd6104934ba0c3f09b4580271, type: 2}
+  - {fileID: 2100000, guid: b86df3f4c9d1d57449df8de11db1baa7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -520,5 +526,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactableDistance: 1
-  buttonEnabledMaterial: {fileID: 0}
   isClicked: 0
+  buttonDefaultMaterial: {fileID: 2100000, guid: b86df3f4c9d1d57449df8de11db1baa7, type: 2}
+  buttonClickedMaterial: {fileID: 2100000, guid: 5601516da5629ae49929f1bcd0ca22e6, type: 2}
+  buttonSolvedMaterial: {fileID: 2100000, guid: 2bedb8470bd89da489a595de3ac834ed, type: 2}

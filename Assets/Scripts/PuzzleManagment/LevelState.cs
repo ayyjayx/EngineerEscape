@@ -1,27 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class LevelState : MonoBehaviour
 {
-    [SerializeField] GameState[] gameStates;
+    /*
+    Skrypt monitorujący obecne postępy w grze.
+    */
     [SerializeField] int gamesSolved = 0;
+
+    [SerializeField] GameState[] gameStates;
     [SerializeField] OpenDoor exitDoor;
     [SerializeField] ScoreHandler scoreHandler;
 
-    // Start is called before the first frame update
     void Start()
     {
         gameStates = FindObjectsOfType<GameState>();
-        exitDoor = FindObjectOfType<OpenDoor>();
+        exitDoor = FindObjectOfType<OpenDoor>(); // Jednie drzwi wyjściowe powinny posiadać ten skrypt.
     }
 
     public void UpdateLevelState(bool isGameSolved)
     {
         if (isGameSolved) { gamesSolved += 1; }
         else { gamesSolved -= 1; }
-        scoreHandler.puzzlesSolved = gamesSolved;
+        scoreHandler.SetGamesSolvedScore(gamesSolved);
     }
 
     private void Update() {

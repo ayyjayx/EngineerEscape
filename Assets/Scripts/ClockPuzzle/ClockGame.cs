@@ -1,33 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ClockGame : GameState
 {
     [SerializeField] RotatingClock[] clocks;
-    // Start is called before the first frame update
+
     void Start()
     {
-        FindObjectsOfType<RotatingClock>();
+        clocks = FindObjectsOfType<RotatingClock>();
     }
 
     public void CheckIsSolved()
     {
         foreach (RotatingClock clock in clocks)
         {
+            /* Jeżeli, którykolwiek zegar nie jest rozwiązany, zagdka nie jest rozwiązana. */
             if (!clock.GetIsClockSolved())
             {
-                isSolved = false;
+                SetIsSolved(false);
                 return;
             }
         }
-        isSolved = true;
+        SetIsSolved(true);
     }
+
     private void Update() {
-        if (needChecking && GetIsSolved())
+        if (GetNeedChecking() && GetIsSolved())
         {
             levelState.UpdateLevelState(GetIsSolved());
-            needChecking = false;
+            SetNeedChecking(false);
         }
     }
 }

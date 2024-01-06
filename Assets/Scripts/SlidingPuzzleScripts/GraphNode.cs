@@ -9,23 +9,26 @@ public class GraphNode : MonoBehaviour
     Klasa reprezentująca wezeł grafu.
      */
     
-    [SerializeField] int id;                                                 // Id węzła.
-    [SerializeField] PuzzlePiece currentPuzzle = null;                       // Puzel obecnie znajdujący się na węźle.
-    [SerializeField] List<GraphNode> neighbours = new();                     // Lista połączonych węzłów.
+    [SerializeField] int id;
+    [SerializeField] PuzzlePiece currentPuzzle = null;
+    [SerializeField] List<GraphNode> neighbours = new();
     [SerializeField] SlidingPuzzle slidingPuzzle;
 
     public void SetId(int newId) { id = newId; }
-    public int GetId() { return id; }                                                   
+    public int GetId() { return id; }
+
     public PuzzlePiece GetCurrentPuzzle() { return currentPuzzle; }          
     public void SetPuzzlePiece(PuzzlePiece newPuzzle, bool isMoving) {
         currentPuzzle = newPuzzle;
         if (!isMoving) {newPuzzle.transform.position = transform.position; }
     }
+
     public PuzzlePiece RemovePuzzle() {
         PuzzlePiece removedPuzzle = GetCurrentPuzzle();
         currentPuzzle = null;
         return removedPuzzle;
     }
+    
     public List<GraphNode> GetNeighboursList() { return neighbours; }
 
     public bool IsMatched()
@@ -45,7 +48,6 @@ public class GraphNode : MonoBehaviour
     }
 
     private void OnMouseUpAsButton() {
-        Debug.Log("Click detected.");
         if (!slidingPuzzle.GetIsMoving() && !slidingPuzzle.GetIsSolved()) { slidingPuzzle.MakeMove(this); }
     }
 
