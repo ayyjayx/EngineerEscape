@@ -155,8 +155,7 @@ public class HanoiGame : GameState
         }
         if (GetNeedChecking() && GetIsSolved())
         {
-            levelState.UpdateLevelState(GetIsSolved());
-            SetNeedChecking(false);
+            SolveGame();
         }
     }
 

@@ -130,8 +130,7 @@ public class SlidingPuzzle : GameState
         }
         if (GetNeedChecking() && GetIsSolved())
         {
-            levelState.UpdateLevelState(GetIsSolved());
-            SetNeedChecking(false);
+            SolveGame();
         }
     }
 }

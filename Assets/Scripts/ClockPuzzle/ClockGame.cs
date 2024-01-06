@@ -26,8 +26,7 @@ public class ClockGame : GameState
     private void Update() {
         if (GetNeedChecking() && GetIsSolved())
         {
-            levelState.UpdateLevelState(GetIsSolved());
-            SetNeedChecking(false);
+            SolveGame();
         }
     }
 }
