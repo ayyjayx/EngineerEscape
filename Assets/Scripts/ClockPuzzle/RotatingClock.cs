@@ -12,6 +12,7 @@ public class RotatingClock : MonoBehaviour
     private float rotationLimit = 0f;
     private float rotationAngle = 30f;
     private int currentHour;
+    private Vector3 initialRotation;
     private GameObject player;
 
     [SerializeField] int offset = 0;
@@ -31,6 +32,7 @@ public class RotatingClock : MonoBehaviour
     }
 
     private void Start() {
+        initialRotation = transform.eulerAngles;
         currentHour = int.Parse(System.DateTime.Now.ToString("hh"));
         UpdateClockState(GetCurrentHourWithOffset());
     }
@@ -43,6 +45,12 @@ public class RotatingClock : MonoBehaviour
 
             if (rotationLimit >= rotationAngle)
             {
+                Quaternion targetRotation = Quaternion.Euler(initialRotation.x, initialRotation.y + rotationAngle, initialRotation.z);
+
+                transform.rotation = targetRotation;
+
+                initialRotation = transform.eulerAngles;
+
                 SetNextHour();
 
                 rotationLimit = 0f;
