@@ -19,8 +19,10 @@ public class HanoiGame : GameState
     Tower source;
     Tower destination;
 
-    float stacksDistanceZ = 2f;
+    float distanceBetweenStacks = 2f;
+    float blockYScale;
     public bool isMoving = false;
+    float moveDuration = 1.2f;
 
     private class Tower
     {
@@ -71,7 +73,6 @@ public class HanoiGame : GameState
         {
             return tower != null && tower.IsInitialized();
         }
-
     }
 
     Tower startTower;
@@ -81,42 +82,44 @@ public class HanoiGame : GameState
 
     private void Start()
     {
-        Transform tf = GetComponent<Transform>();
-        InitializeStackObjects(tf);
+        blockYScale = blocks[0].transform.localScale.y;
+        Transform tableTransform = GetComponent<Transform>();
+
+        InitializeStackObjects(tableTransform);
 
         startButtonState = startButton.GetComponent<HanoiButton>();
         midButtonState = midButton.GetComponent<HanoiButton>();
         finalButtonState = finalButton.GetComponent<HanoiButton>();
 
-        InitializeBaseStack(tf);
+        InitializeBaseStack();
     }
 
-    private void InitializeStackObjects(Transform tf)
+    private void InitializeStackObjects(Transform tableTransform)
     {
         startTower = new Tower(new GameObject("startTower"));
         midTower = new Tower(new GameObject("midTower"));
         finalTower = new Tower(new GameObject("finalTower"));
 
         startTower.towerObject.transform.position = new Vector3(
-            tf.position.x,
-            tf.position.y + 1.1f,
-            tf.position.z + stacksDistanceZ
+            tableTransform.position.x,
+            tableTransform.position.y + tableTransform.localScale.y + blockYScale / 2,
+            tableTransform.position.z + distanceBetweenStacks
         );
 
         midTower.towerObject.transform.position = new Vector3(
-            tf.position.x,
-            tf.position.y + 1.1f,
-            tf.position.z
+            tableTransform.position.x,
+            tableTransform.position.y + tableTransform.localScale.y + blockYScale / 2,
+            tableTransform.position.z
         );
 
         finalTower.towerObject.transform.position = new Vector3(
-            tf.position.x,
-            tf.position.y + 1.1f,
-            tf.position.z - stacksDistanceZ
+            tableTransform.position.x,
+            tableTransform.position.y + tableTransform.localScale.y + blockYScale / 2,
+            tableTransform.position.z - distanceBetweenStacks
         );
     }
 
-    private void InitializeBaseStack(Transform tf)
+    private void InitializeBaseStack()
     {
         int tableCount = blocks.Length;
         for (int i = 0; i < tableCount; i++)
@@ -124,7 +127,7 @@ public class HanoiGame : GameState
             GameObject newInstance = Instantiate(blocks[i]);
             newInstance.transform.position = new Vector3(
                 startTower.towerObject.transform.position.x,
-                startTower.towerObject.transform.position.y + 0.2f * i,
+                startTower.towerObject.transform.position.y + blockYScale * i,
                 startTower.towerObject.transform.position.z
             );
             startTower.Push(newInstance);
@@ -148,12 +151,12 @@ public class HanoiGame : GameState
                     RestartButtons();
                 }
             }
-            if (finalTower.Count() == blocks.Count()) isSolved = true;
+            if (finalTower.Count() == blocks.Count()) SetIsSolved(true);
         }
-        if (needChecking && GetIsSolved())
+        if (GetNeedChecking() && GetIsSolved())
         {
             levelState.UpdateLevelState(GetIsSolved());
-            needChecking = false;
+            SetNeedChecking(false);
         }
     }
 
@@ -194,22 +197,22 @@ public class HanoiGame : GameState
         destination.Push(brick);
         foreach (Vector3 targetPosition in targetPositions)
         {
-            float duration = 1.0f;
             float elapsedTime = 0.0f;
 
             Vector3 initialPosition = brick.transform.position;
-            while (elapsedTime < duration)
+            while (elapsedTime < moveDuration)
             {
                 brick.transform.position = Vector3.Lerp(
                     initialPosition,
                     targetPosition,
-                    elapsedTime / duration
+                    elapsedTime / moveDuration
                 );
 
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
         }
+        brick.transform.position = targetPositions[^1];
         isMoving = false;
     }
 
