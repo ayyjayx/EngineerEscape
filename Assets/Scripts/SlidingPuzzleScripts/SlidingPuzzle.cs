@@ -6,16 +6,17 @@ using UnityEngine;
 public class SlidingPuzzle : GameState
 {
 
-    [SerializeField] GraphNode[] nodes;                  // Tablica wszystkich wezłów grafu.
-    [SerializeField] List<GraphNode> matchedPuzzles;     // Lista dopasowanych puzli.
+    [SerializeField] GraphNode[] nodes;
+    [SerializeField] List<GraphNode> matchedPuzzles;
     [SerializeField] GameObject puzzleObject;
     [SerializeField] List<Material> puzzleMaterials;
     [SerializeField] Material solvedMaterial;
+
     private bool isMoving = false;
 
     public bool GetIsMoving() { return isMoving; }
+    public void SetIsMoving(bool state) { isMoving = state; }
 
-    // Start is called before the first frame update
     void Start()
     {
         nodes = FindObjectsOfType<GraphNode>();
@@ -42,7 +43,7 @@ public class SlidingPuzzle : GameState
 
             // Przypisanie puzla do losowego node'a.
             int index = Random.Range(0, listOfNodeIds.Count);
-            nodes[listOfNodeIds[index]].SetPuzzlePiece(puzzleInstance.GetComponent<PuzzlePiece>(), isMoving);
+            nodes[listOfNodeIds[index]].SetPuzzlePiece(puzzleInstance.GetComponent<PuzzlePiece>(), GetIsMoving());
             listOfNodeIds.RemoveAt(index);
         }
     }
@@ -64,10 +65,10 @@ public class SlidingPuzzle : GameState
     {
         if (!sourceNode.IsEmpty() && sourceNode.FindEmptyNeighbour() != null)
         {
-            isMoving = true;
+            SetIsMoving(true);
             GraphNode emptyNeighbour = sourceNode.FindEmptyNeighbour();
             PuzzlePiece puzzlePieceToMove = sourceNode.RemovePuzzle();
-            emptyNeighbour.SetPuzzlePiece(puzzlePieceToMove, isMoving);
+            emptyNeighbour.SetPuzzlePiece(puzzlePieceToMove, GetIsMoving());
 
             StartCoroutine(MovePuzzleCoroutine(sourceNode, emptyNeighbour, puzzlePieceToMove));
 
@@ -89,10 +90,6 @@ public class SlidingPuzzle : GameState
                 }
             }
         }
-        else
-        {
-            Debug.Log("Nothing to move or no empty neighbours.");
-        }
     }
 
     private IEnumerator MovePuzzleCoroutine(GraphNode source, GraphNode destination, PuzzlePiece pieceToMove)
@@ -113,10 +110,9 @@ public class SlidingPuzzle : GameState
             elapsedTime += Time.deltaTime;
             yield return null;
         }
-        isMoving = false;
+        SetIsMoving(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (nodes.Length - 1 == matchedPuzzles.Count)
@@ -132,10 +128,9 @@ public class SlidingPuzzle : GameState
                 nodeId++;
             }
         }
-        if (needChecking && GetIsSolved())
+        if (GetNeedChecking() && GetIsSolved())
         {
-            levelState.UpdateLevelState(GetIsSolved());
-            needChecking = false;
+            SolveGame();
         }
     }
 }

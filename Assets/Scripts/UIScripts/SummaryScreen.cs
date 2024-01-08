@@ -16,12 +16,17 @@ public class SummaryScreen : MonoBehaviour
 
         scoreHandler = FindObjectOfType<ScoreHandler>();
 
-        int minuty = Mathf.FloorToInt(scoreHandler.timeLeft / 60);
-        int sekundy = Mathf.FloorToInt(scoreHandler.timeLeft % 60);
+        int minuty = Mathf.FloorToInt(scoreHandler.GetTimeLeft() / 60);
+        int sekundy = Mathf.FloorToInt(scoreHandler.GetTimeLeft() % 60);
 
         string formattedText = string.Format("{0:00}:{1:00}", minuty, sekundy);
 
-        if (scoreHandler.timeLeft > 0 && scoreHandler.puzzlesSolved == 3)
+        if (scoreHandler.GetTimeLeft() <= 0)
+        {
+            formattedText = "00:00";
+        }
+
+        if (scoreHandler.GetTimeLeft() > 0 && scoreHandler.GetGamesSolvedScore() == 3)
         {
             resultText.text = "Sukces!";
             resultText.color = Color.green;
@@ -32,7 +37,7 @@ public class SummaryScreen : MonoBehaviour
             resultText.color = Color.red;
         }
         timeLeftText.text = "Pozostało: " + formattedText;
-        puzzlesSolvedText.text = "Rozwiązane zagadki: " + scoreHandler.puzzlesSolved.ToString() +"/3";
+        puzzlesSolvedText.text = "Rozwiązane zagadki: " + scoreHandler.GetGamesSolvedScore() +"/3";
     }
 
 }

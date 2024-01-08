@@ -1,13 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreHandler : MonoBehaviour
 {
+    /* Klasa przechowujące dane o wynikach rozgrywki. */
     public static ScoreHandler instance;
 
-    public int puzzlesSolved;
-    public float timeLeft = 60f;
+    private int gamesSolvedScore;
+    private int gamesNumber;
+    [SerializeField] private float timeLeft = 60f;
+
+    public void SetTimeLeft(float time) { timeLeft = time; }
+    public void SetGamesNumber(int number) { gamesNumber = number; }
+    public void SetGamesSolvedScore(int score) { gamesSolvedScore = score; }
+    
+    public float GetTimeLeft() { return timeLeft; }
+    public int GetGamesNumber() { return gamesNumber; }
+    public int GetGamesSolvedScore() { return gamesSolvedScore; }
 
     private void Awake()
     {

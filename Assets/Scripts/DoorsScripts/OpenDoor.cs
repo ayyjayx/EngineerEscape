@@ -16,7 +16,6 @@ public class OpenDoor : MonoBehaviour
     {
         shouldOpen = state;
         elapsedTime = 0f;
-        Debug.Log(transform.position);
         startingPosition = transform.position;
     }
 

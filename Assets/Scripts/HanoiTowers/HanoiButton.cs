@@ -1,19 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HanoiButton : MonoBehaviour
 {
-    GameObject player;
+    
     [SerializeField] float interactableDistance = 1f;
-    private Material buttonDisabledMaterial;
-    public Material buttonEnabledMaterial;
+
     public bool isClicked = false;
+
+    private GameObject player;
+    
+    [SerializeField] Material buttonDefaultMaterial;
+    [SerializeField] Material buttonClickedMaterial;
+    [SerializeField] Material buttonSolvedMaterial;
+
     private HanoiGame hanoiGame;
     
 
     private void Start() {
-        buttonDisabledMaterial = GetComponent<Renderer>().material;
         hanoiGame = GetComponentInParent<HanoiGame>();
     }
 
@@ -21,7 +24,7 @@ public class HanoiButton : MonoBehaviour
     {
         if (!hanoiGame.GetIsSolved() && !hanoiGame.isMoving)
         {
-            if (isButtonInRange())
+            if (IsButtonInRange())
             {
                 TurnOn();
             }
@@ -39,29 +42,27 @@ public class HanoiButton : MonoBehaviour
     {
         if (!isClicked)
         {
-            GetComponent<Renderer>().material = buttonEnabledMaterial;
-            isClicked = true;
+            TurnOn();
         }
         else
         {
-            GetComponent<Renderer>().material = buttonDisabledMaterial;
-            isClicked = false;
+            TurnOff();
         }
     }
 
     public void TurnOff()
     {
-        GetComponent<Renderer>().material = buttonDisabledMaterial;
+        GetComponent<Renderer>().material = buttonDefaultMaterial;
         isClicked = false;
     }
 
     public void TurnOn()
     {
-        GetComponent<Renderer>().material = buttonEnabledMaterial;
+        GetComponent<Renderer>().material = buttonClickedMaterial;
         isClicked = true;
     }
 
-    private bool isButtonInRange()
+    private bool IsButtonInRange()
     {
         player = GameObject.FindWithTag("Player");
         Transform buttonPosition = GetComponent<Transform>();
