@@ -22,7 +22,7 @@ public class HanoiGame : GameState
     float distanceBetweenStacks = 2f;
     float blockYScale;
     public bool isMoving = false;
-    float moveDuration = 1.2f;
+    [SerializeField] float moveDuration = .3f;
 
     private class Tower
     {

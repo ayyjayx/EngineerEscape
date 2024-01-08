@@ -72,7 +72,7 @@ public class RotatingClock : MonoBehaviour
             GetComponent<Renderer>().material.color = Color.red;
             clockGame.CheckIsSolved();
         }
-        else { isClockSolved = false; }
+        else { isClockSolved = false;  GetComponent<Renderer>().material.color = Color.blue; }
     }
 
     private int GetCurrentHourWithOffset()

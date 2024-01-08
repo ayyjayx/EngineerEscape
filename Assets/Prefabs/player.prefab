@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8327153549795461068}
   - component: {fileID: 8327153549795461057}
   - component: {fileID: 7782223861609583515}
+  - component: {fileID: 770325769398406074}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -147,6 +148,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpHeight: 1
+--- !u!114 &770325769398406074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8327153549795461066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 348ba402fce60d14fabac6056dbd62ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpHeight: 1
 --- !u!1 &8327153550250480523
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +172,7 @@ GameObject:
   - component: {fileID: 8327153550250480526}
   - component: {fileID: 8327153550250480525}
   - component: {fileID: 8327153550250480524}
-  - component: {fileID: 7603090053849759936}
+  - component: {fileID: 245444822438189921}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -240,7 +254,7 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8327153550250480523}
   m_Enabled: 1
---- !u!114 &7603090053849759936
+--- !u!114 &245444822438189921
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

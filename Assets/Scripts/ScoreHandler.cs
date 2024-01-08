@@ -7,7 +7,7 @@ public class ScoreHandler : MonoBehaviour
 
     private int gamesSolvedScore;
     private int gamesNumber;
-    private float timeLeft = 60f;
+    [SerializeField] private float timeLeft = 60f;
 
     public void SetTimeLeft(float time) { timeLeft = time; }
     public void SetGamesNumber(int number) { gamesNumber = number; }
