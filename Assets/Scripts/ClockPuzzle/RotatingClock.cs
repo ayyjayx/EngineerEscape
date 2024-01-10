@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class RotatingClock : MonoBehaviour
 {
@@ -15,13 +16,20 @@ public class RotatingClock : MonoBehaviour
     private Vector3 initialRotation;
     private GameObject player;
 
+    [SerializeField] bool rootClock; // Zegar na bez przesunięcia.
     [SerializeField] int offset = 0;
     [SerializeField] int chosenHour = 1;
     [SerializeField] float interactableDistance = 2f;
 
+    [SerializeField] TMP_Text correspondingMapText;
+    [SerializeField] TMP_Text chosenHourText;
+
     [SerializeField] ClockGame clockGame;
 
+    public bool IsRootClock() { return rootClock; }
+    public void SetOffset(int value) { offset = value; }
     public bool GetIsClockSolved() { return isClockSolved; }
+    public void SetCorrespondingMapText(string newText) { correspondingMapText.text = newText; }
 
     private void OnMouseUpAsButton()
     {
@@ -31,10 +39,13 @@ public class RotatingClock : MonoBehaviour
         }
     }
 
-    private void Start() {
+    private void Awake() {
+        chosenHourText.text = chosenHour.ToString();
         initialRotation = transform.eulerAngles;
         currentHour = int.Parse(System.DateTime.Now.ToString("hh"));
-        UpdateClockState(GetCurrentHourWithOffset());
+        if(IsRootClock()) { correspondingMapText.text = "0"; }
+
+        // UpdateClockState(GetCurrentHourWithOffset());
     }
 
     private void Update()
@@ -53,6 +64,7 @@ public class RotatingClock : MonoBehaviour
                 isRotating = false;
 
                 UpdateClockState(GetCurrentHourWithOffset());
+                Debug.Log(GetCurrentHourWithOffset());
             }
         }
     }
@@ -64,22 +76,28 @@ public class RotatingClock : MonoBehaviour
         initialRotation = transform.eulerAngles;
     }
 
-    private void UpdateClockState(int targetHour)
+    public void UpdateClockState(int targetHour)
     {
         if (chosenHour == targetHour)
         {
             isClockSolved = true;
-            GetComponent<Renderer>().material.color = Color.red;
             clockGame.CheckIsSolved();
         }
-        else { isClockSolved = false;  GetComponent<Renderer>().material.color = Color.blue; }
+        else { isClockSolved = false; }
     }
 
-    private int GetCurrentHourWithOffset()
+    public int GetCurrentHourWithOffset()
     {
         currentHour = int.Parse(System.DateTime.Now.ToString("hh"));
         int targetHour = currentHour;
-        if (offset != 0) { targetHour = (currentHour + offset) % 12; }
+        if (!IsRootClock())
+        {
+            targetHour = (currentHour + offset) % 12;
+            if (targetHour <= 0)
+            {
+                targetHour += 12;
+            }
+        }
 
         return targetHour;
     }
@@ -88,6 +106,7 @@ public class RotatingClock : MonoBehaviour
     {
         chosenHour += 1;
         if (chosenHour > 12) chosenHour = 1;
+        chosenHourText.text = chosenHour.ToString();
     }
 
     private void RotateClock()

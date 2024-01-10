@@ -1,12 +1,37 @@
+using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ClockGame : GameState
 {
+    int DIFFICULTY = 1;
     [SerializeField] RotatingClock[] clocks;
+    [SerializeField] MathEquations mathEquations;
 
     void Start()
     {
         clocks = FindObjectsOfType<RotatingClock>();
+        RandomizeAndSetOffsets();
+    }
+
+    private void RandomizeAndSetOffsets()
+    {
+        int equationsListCount = mathEquations.GetEquationsListCount(DIFFICULTY);
+
+        List<MathEquations.EquationData> equations = mathEquations.equationsList.GetList(DIFFICULTY);
+
+        foreach (RotatingClock clock in clocks)
+        {
+            if (!clock.IsRootClock())
+            {
+                int randomIndex = Random.Range(0, equationsListCount);
+                clock.SetOffset(equations[randomIndex].solution);
+                clock.SetCorrespondingMapText(equations[randomIndex].equation);
+                equations.RemoveAt(randomIndex);
+                equationsListCount -= 1;
+                clock.UpdateClockState(clock.GetCurrentHourWithOffset());
+            }
+        }
     }
 
     public void CheckIsSolved()
