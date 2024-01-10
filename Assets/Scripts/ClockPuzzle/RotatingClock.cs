@@ -22,6 +22,7 @@ public class RotatingClock : MonoBehaviour
     [SerializeField] float interactableDistance = 2f;
 
     [SerializeField] TMP_Text correspondingMapText;
+    [SerializeField] TMP_Text chosenHourText;
 
     [SerializeField] ClockGame clockGame;
 
@@ -39,6 +40,7 @@ public class RotatingClock : MonoBehaviour
     }
 
     private void Awake() {
+        chosenHourText.text = chosenHour.ToString();
         initialRotation = transform.eulerAngles;
         currentHour = int.Parse(System.DateTime.Now.ToString("hh"));
         if(IsRootClock()) { correspondingMapText.text = "0"; }
@@ -62,6 +64,7 @@ public class RotatingClock : MonoBehaviour
                 isRotating = false;
 
                 UpdateClockState(GetCurrentHourWithOffset());
+                Debug.Log(GetCurrentHourWithOffset());
             }
         }
     }
@@ -78,10 +81,9 @@ public class RotatingClock : MonoBehaviour
         if (chosenHour == targetHour)
         {
             isClockSolved = true;
-            GetComponent<Renderer>().material.color = Color.red;
             clockGame.CheckIsSolved();
         }
-        else { isClockSolved = false;  GetComponent<Renderer>().material.color = Color.blue; }
+        else { isClockSolved = false; }
     }
 
     public int GetCurrentHourWithOffset()
@@ -90,14 +92,11 @@ public class RotatingClock : MonoBehaviour
         int targetHour = currentHour;
         if (!IsRootClock())
         {
-            Debug.Log("cur: " + currentHour + " offset: " + offset);
             targetHour = (currentHour + offset) % 12;
-            Debug.Log(targetHour + " AFTER MODULO");
             if (targetHour <= 0)
             {
                 targetHour += 12;
             }
-            Debug.Log(targetHour + " AFTER EVENTUAL ADDITTION");
         }
 
         return targetHour;
@@ -107,6 +106,7 @@ public class RotatingClock : MonoBehaviour
     {
         chosenHour += 1;
         if (chosenHour > 12) chosenHour = 1;
+        chosenHourText.text = chosenHour.ToString();
     }
 
     private void RotateClock()

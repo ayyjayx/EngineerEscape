@@ -7,10 +7,6 @@ public class ClockGame : GameState
     int DIFFICULTY = 1;
     [SerializeField] RotatingClock[] clocks;
     [SerializeField] MathEquations mathEquations;
-    
-    [SerializeField] TMP_Text rootClockText;
-    [SerializeField] TMP_Text leftClockText;
-    [SerializeField] TMP_Text rightClockText;
 
     void Start()
     {
@@ -20,7 +16,7 @@ public class ClockGame : GameState
 
     private void RandomizeAndSetOffsets()
     {
-        int equationsListCount = mathEquations.GetEquationsTableLenght(DIFFICULTY);
+        int equationsListCount = mathEquations.GetEquationsListCount(DIFFICULTY);
 
         List<MathEquations.EquationData> equations = mathEquations.equationsList.GetList(DIFFICULTY);
 

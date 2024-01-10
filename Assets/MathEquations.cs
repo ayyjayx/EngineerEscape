@@ -39,7 +39,7 @@ public class MathEquations : MonoBehaviour
         equationsList = JsonUtility.FromJson<EquationList>(equationsJsonFile.text);
     }
 
-    public int GetEquationsTableLenght(int difficultyLevel)
+    public int GetEquationsListCount(int difficultyLevel)
     {
         return equationsList.GetList(difficultyLevel).Count;
     }
