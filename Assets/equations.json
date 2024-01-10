@@ -1,0 +1,32 @@
+{
+  "easy": [
+    {
+      "equation": "1+1",
+      "solution": "2"
+    },
+    {
+      "equation": "10-13",
+      "solution": "-3"
+    }
+  ],
+  "medium": [
+    {
+      "equation": "10*2/5",
+      "solution": "4"
+    },
+    {
+      "equation": "15/3-12",
+      "solution": "-9"
+    }
+  ],
+  "hard": [
+    {
+      "equation": "2+(-2)*2",
+      "solution": "6"
+    },
+    {
+      "equation": "-8*(-8)/2/8",
+      "solution": "4"
+    }
+  ]
+}
