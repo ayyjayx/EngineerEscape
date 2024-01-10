@@ -2,21 +2,29 @@ using UnityEngine;
 
 public class HanoiButton : MonoBehaviour
 {
-    
+
     [SerializeField] float interactableDistance = 1f;
 
     public bool isClicked = false;
 
     private GameObject player;
-    
+
     [SerializeField] Material buttonDefaultMaterial;
     [SerializeField] Material buttonClickedMaterial;
     [SerializeField] Material buttonSolvedMaterial;
 
     private HanoiGame hanoiGame;
-    
 
-    private void Start() {
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+
+    private void Start()
+    {
         hanoiGame = GetComponentInParent<HanoiGame>();
     }
 
@@ -26,11 +34,13 @@ public class HanoiButton : MonoBehaviour
         {
             if (IsButtonInRange())
             {
+                audioManager.PlaySFX(audioManager.test_sfx);
                 TurnOn();
             }
         }
     }
-    private void Update() {
+    private void Update()
+    {
 
         if (hanoiGame.GetIsSolved())
         {
