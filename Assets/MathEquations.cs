@@ -22,13 +22,13 @@ public class MathEquations : MonoBehaviour
 
         public List<EquationData> GetList(int difficultyLevel)
         {
-            switch(difficultyLevel)
+            return difficultyLevel switch
             {
-                case 1: return easy.ToList();;
-                case 2: return medium.ToList();
-                case 3: return hard.ToList();
-                default: return null;
-            }
+                1 => easy.ToList(),
+                2 => medium.ToList(),
+                3 => hard.ToList(),
+                _ => null,
+            };
         }
     }
 
