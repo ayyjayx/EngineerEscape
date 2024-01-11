@@ -200,7 +200,7 @@ public class HanoiGame : GameState
             ),
             new(
             brick.transform.position.x,
-            destination.towerObject.transform.position.y + 0.2f * destination.Count(),
+            destination.towerObject.transform.position.y + 0.1f * destination.Count(),
             destination.towerObject.transform.position.z
             ),
 

@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class HanoiButton : MonoBehaviour
 {
-
-    [SerializeField] float interactableDistance = 1f;
-
     public bool isClicked = false;
 
     private GameObject player;
+
+    [SerializeField] float interactableDistance = 1f;
 
     [SerializeField] Material buttonDefaultMaterial;
     [SerializeField] Material buttonClickedMaterial;
