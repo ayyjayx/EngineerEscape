@@ -64,7 +64,6 @@ public class RotatingClock : MonoBehaviour
                 isRotating = false;
 
                 UpdateClockState(GetCurrentHourWithOffset());
-                Debug.Log(GetCurrentHourWithOffset());
             }
         }
     }
@@ -106,7 +105,11 @@ public class RotatingClock : MonoBehaviour
     {
         chosenHour += 1;
         if (chosenHour > 12) chosenHour = 1;
-        chosenHourText.text = chosenHour.ToString();
+        if (clockGame.levelState.IsExpertModeOn())
+        {
+            chosenHourText.text = "";
+        }
+        else { chosenHourText.text = chosenHour.ToString(); }
     }
 
     private void RotateClock()

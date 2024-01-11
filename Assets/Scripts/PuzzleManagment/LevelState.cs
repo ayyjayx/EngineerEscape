@@ -18,6 +18,7 @@ public class LevelState : MonoBehaviour
     }
 
     public int GetDifficulty() { return gameManager.difficultyLevel; }
+    public bool IsExpertModeOn() { return gameManager.expertMode; }
 
     void Start()
     {
