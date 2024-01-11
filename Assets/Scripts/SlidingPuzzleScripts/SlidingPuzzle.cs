@@ -82,6 +82,10 @@ public class SlidingPuzzle : GameState
         {
             SetIsMoving(true);
             GraphNode emptyNeighbour = sourceNode.FindEmptyNeighbour();
+            if (levelState.IsExpertModeOn())
+            {
+                emptyNeighbour.GetComponentInParent<MeshRenderer>().material.color = Color.grey;
+            }
             PuzzlePiece puzzlePieceToMove = sourceNode.RemovePuzzle();
             emptyNeighbour.SetPuzzlePiece(puzzlePieceToMove, GetIsMoving());
 
