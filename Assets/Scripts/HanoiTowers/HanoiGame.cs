@@ -96,6 +96,15 @@ public class HanoiGame : GameState
         finalButtonState = finalButton.GetComponent<HanoiButton>();
 
         InitializeBaseStack();
+
+        if (levelState.IsExpertModeOn())
+        {
+            HanoiButton temp;
+            temp = startButtonState;
+            startButtonState = midButtonState;
+            midButtonState = finalButtonState;
+            finalButtonState = temp;
+        }
     }
 
     private void InitializeStackObjects(Transform tableTransform)
