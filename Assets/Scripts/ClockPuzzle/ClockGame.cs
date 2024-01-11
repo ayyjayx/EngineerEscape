@@ -7,10 +7,16 @@ public class ClockGame : GameState
     int DIFFICULTY = 1;
     [SerializeField] RotatingClock[] clocks;
     [SerializeField] MathEquations mathEquations;
+    [SerializeField] GameManager gameManager;
+
+    private void Awake() {
+        gameManager = GameManager.instance;
+    }
 
     void Start()
     {
         clocks = FindObjectsOfType<RotatingClock>();
+        DIFFICULTY = gameManager.difficultyLevel;
         RandomizeAndSetOffsets();
     }
 
