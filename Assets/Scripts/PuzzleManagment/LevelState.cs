@@ -11,6 +11,14 @@ public class LevelState : MonoBehaviour
     [SerializeField] OpenDoor exitDoor;
     [SerializeField] ScoreHandler scoreHandler;
 
+    GameManager gameManager;
+
+    private void Awake() {
+        gameManager = GameManager.instance;
+    }
+
+    public int GetDifficulty() { return gameManager.difficultyLevel; }
+
     void Start()
     {
         gameStates = FindObjectsOfType<GameState>();

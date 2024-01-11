@@ -6,11 +6,17 @@ using UnityEngine;
 public class SlidingPuzzle : GameState
 {
 
+    int DIFFICULTY = 1;
+
     [SerializeField] GraphNode[] nodes;
     [SerializeField] List<GraphNode> matchedPuzzles;
     [SerializeField] GameObject puzzleObject;
     [SerializeField] List<Material> puzzleMaterials;
     [SerializeField] Material solvedMaterial;
+
+    [SerializeField] GameObject easyPreset;
+    [SerializeField] GameObject mediumPreset;
+    [SerializeField] GameObject hardPreset;
 
     private bool isMoving = false;
 
@@ -19,9 +25,18 @@ public class SlidingPuzzle : GameState
 
     void Start()
     {
+        DIFFICULTY = levelState.GetDifficulty();
+        InstantiatePuzzlePresset();
         nodes = FindObjectsOfType<GraphNode>();
         InitializeNodes();
         InitializePuzzles();
+    }
+
+    private void InstantiatePuzzlePresset()
+    {
+        if (DIFFICULTY == 1) { Instantiate(easyPreset, transform); }
+        else if (DIFFICULTY == 2) { Instantiate(mediumPreset, transform); }
+        else if (DIFFICULTY == 3) { Instantiate(hardPreset, transform); }
     }
 
     private void InitializePuzzles()

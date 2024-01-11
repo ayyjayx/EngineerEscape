@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class ClockGame : GameState
 {
@@ -8,16 +7,11 @@ public class ClockGame : GameState
     
     [SerializeField] RotatingClock[] clocks;
     [SerializeField] MathEquations mathEquations;
-    [SerializeField] GameManager gameManager;
-
-    private void Awake() {
-        gameManager = GameManager.instance;
-    }
 
     void Start()
     {
         clocks = FindObjectsOfType<RotatingClock>();
-        DIFFICULTY = gameManager.difficultyLevel;
+        DIFFICULTY = levelState.GetDifficulty();
         RandomizeAndSetOffsets();
     }
 
