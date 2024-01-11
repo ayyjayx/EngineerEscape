@@ -106,19 +106,19 @@ public class HanoiGame : GameState
 
         startTower.towerObject.transform.position = new Vector3(
             tableTransform.position.x,
-            tableTransform.position.y + tableTransform.localScale.y + blockYScale / 2,
+            tableTransform.position.y + tableTransform.localScale.y,
             tableTransform.position.z + distanceBetweenStacks
         );
 
         midTower.towerObject.transform.position = new Vector3(
             tableTransform.position.x,
-            tableTransform.position.y + tableTransform.localScale.y + blockYScale / 2,
+            tableTransform.position.y + tableTransform.localScale.y,
             tableTransform.position.z
         );
 
         finalTower.towerObject.transform.position = new Vector3(
             tableTransform.position.x,
-            tableTransform.position.y + tableTransform.localScale.y + blockYScale / 2,
+            tableTransform.position.y + tableTransform.localScale.y,
             tableTransform.position.z - distanceBetweenStacks
         );
     }
@@ -130,7 +130,7 @@ public class HanoiGame : GameState
             GameObject newInstance = Instantiate(blocks[i]);
             newInstance.transform.position = new Vector3(
                 startTower.towerObject.transform.position.x,
-                startTower.towerObject.transform.position.y + blockYScale * i,
+                startTower.towerObject.transform.position.y + blockYScale / 2 * i,
                 startTower.towerObject.transform.position.z
             );
             startTower.Push(newInstance);
