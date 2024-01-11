@@ -1139,7 +1139,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.7, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &234833764
 MeshRenderer:
@@ -1253,8 +1253,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c1cc0f69c147fde4199764bb38e4adf5, type: 2}
   solvedMaterial: {fileID: 2100000, guid: e8051d201dcd9544888ff6b06b7b3c48, type: 2}
   easyPreset: {fileID: 1547177728398364716, guid: 0997ffa5d6b67434cb5494cdd99ae112, type: 3}
-  mediumPreset: {fileID: 1547177728398364716, guid: 17b6d39dc2a2b7747a32e8d221de956d, type: 3}
-  hardPreset: {fileID: 1547177728398364716, guid: 599472a0d6e6cc94a9bd8ec0f153ed5b, type: 3}
+  mediumPreset: {fileID: 1547177728398364716, guid: 599472a0d6e6cc94a9bd8ec0f153ed5b, type: 3}
+  hardPreset: {fileID: 1547177728398364716, guid: 17b6d39dc2a2b7747a32e8d221de956d, type: 3}
 --- !u!4 &266978544
 Transform:
   m_ObjectHideFlags: 0
@@ -1264,7 +1264,7 @@ Transform:
   m_GameObject: {fileID: 266978542}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.47, y: 0.96, z: -3.94}
+  m_LocalPosition: {x: 10.35, y: 0, z: -2.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2178,7 +2178,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1.7, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &513705479
 MeshRenderer:
@@ -2696,7 +2696,6 @@ MonoBehaviour:
   gameStates: []
   exitDoor: {fileID: 0}
   scoreHandler: {fileID: 933304390}
-  gameManager: {fileID: 0}
 --- !u!114 &831579726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6307,20 +6306,28 @@ PrefabInstance:
       objectReference: {fileID: 831579725}
     - target: {fileID: 4318596488067991860, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
       propertyPath: blocks.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4318596488067991860, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
       propertyPath: blocks.Array.data[0]
       value: 
-      objectReference: {fileID: 5744751898027427447, guid: db819d06a228b5c4ea8870067f9d0f19, type: 3}
+      objectReference: {fileID: 4392181275001697231, guid: ffbf5e01a00c95e47a4e7b89b4f19b07, type: 3}
     - target: {fileID: 4318596488067991860, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
       propertyPath: blocks.Array.data[1]
       value: 
-      objectReference: {fileID: 6470287887068054744, guid: 8bedd74892835d1419ffef978b2e2cc2, type: 3}
+      objectReference: {fileID: 4392181275001697231, guid: 748336d8f03e2ce44b73cd0532cd20f5, type: 3}
     - target: {fileID: 4318596488067991860, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
       propertyPath: blocks.Array.data[2]
       value: 
-      objectReference: {fileID: 2799772920902206356, guid: 9384e09660fdb9b46b588ee886655df6, type: 3}
+      objectReference: {fileID: 4392181275001697231, guid: 0e329f6314727524e8284355b690379b, type: 3}
+    - target: {fileID: 4318596488067991860, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
+      propertyPath: blocks.Array.data[3]
+      value: 
+      objectReference: {fileID: 4392181275001697231, guid: 14a66f1d2b4a69a499f4f2be5a81fd13, type: 3}
+    - target: {fileID: 4318596488067991860, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
+      propertyPath: blocks.Array.data[4]
+      value: 
+      objectReference: {fileID: 4392181275001697231, guid: 934988de1756e75449cd6529adad9395, type: 3}
     - target: {fileID: 5800669401018593796, guid: 3b1d88434fb2a5042aadf7e901e2d880, type: 3}
       propertyPath: m_Name
       value: HanoiTowers
