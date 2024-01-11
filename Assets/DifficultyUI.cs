@@ -28,7 +28,7 @@ public class DifficultyUI : MonoBehaviour
     }
 
     private void Start() {
-        gameManager = FindObjectOfType<GameManager>();
+        gameManager = GameManager.instance;
         if (gameManager.expertMode)
         {
             expertToggle.isOn = true;

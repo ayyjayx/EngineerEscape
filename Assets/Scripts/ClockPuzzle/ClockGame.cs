@@ -4,7 +4,8 @@ using TMPro;
 
 public class ClockGame : GameState
 {
-    int DIFFICULTY = 1;
+    int DIFFICULTY;
+    
     [SerializeField] RotatingClock[] clocks;
     [SerializeField] MathEquations mathEquations;
     [SerializeField] GameManager gameManager;
