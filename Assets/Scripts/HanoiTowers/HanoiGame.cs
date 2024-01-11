@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class HanoiGame : GameState
 {
+    int DIFFICULTY = 1;
+
     [SerializeField] GameObject[] blocks;
 
     public GameObject startButton;
@@ -82,6 +84,8 @@ public class HanoiGame : GameState
 
     private void Start()
     {
+        DIFFICULTY = levelState.GetDifficulty();
+
         blockYScale = blocks[0].transform.localScale.y;
         Transform tableTransform = GetComponent<Transform>();
 
@@ -121,8 +125,7 @@ public class HanoiGame : GameState
 
     private void InitializeBaseStack()
     {
-        int tableCount = blocks.Length;
-        for (int i = 0; i < tableCount; i++)
+        for (int i = 0; i < 2 + DIFFICULTY; i++)
         {
             GameObject newInstance = Instantiate(blocks[i]);
             newInstance.transform.position = new Vector3(
