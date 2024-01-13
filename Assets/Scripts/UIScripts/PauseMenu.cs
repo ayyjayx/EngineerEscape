@@ -9,6 +9,13 @@ public class PauseMenu : MonoBehaviour
 
     public bool isPaused;
 
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +35,7 @@ public class PauseMenu : MonoBehaviour
 
     public void PauseGame()
     {
+        audioManager.PauseMusic();
         Cursor.lockState = CursorLockMode.Confined;
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
@@ -36,6 +44,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ResumeGame()
     {
+        audioManager.UnpauseMusic();
         Cursor.lockState = CursorLockMode.Locked;
         pauseMenu.SetActive(false);
         Time.timeScale = 1f;
