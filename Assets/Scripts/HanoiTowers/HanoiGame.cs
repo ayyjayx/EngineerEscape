@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class HanoiGame : GameState
 {
+    int DIFFICULTY = 1;
+
     [SerializeField] GameObject[] blocks;
 
     public GameObject startButton;
@@ -82,6 +84,8 @@ public class HanoiGame : GameState
 
     private void Start()
     {
+        DIFFICULTY = levelState.GetDifficulty();
+
         blockYScale = blocks[0].transform.localScale.y;
         Transform tableTransform = GetComponent<Transform>();
 
@@ -92,6 +96,15 @@ public class HanoiGame : GameState
         finalButtonState = finalButton.GetComponent<HanoiButton>();
 
         InitializeBaseStack();
+
+        if (levelState.IsExpertModeOn())
+        {
+            HanoiButton temp;
+            temp = startButtonState;
+            startButtonState = midButtonState;
+            midButtonState = finalButtonState;
+            finalButtonState = temp;
+        }
     }
 
     private void InitializeStackObjects(Transform tableTransform)
@@ -102,32 +115,31 @@ public class HanoiGame : GameState
 
         startTower.towerObject.transform.position = new Vector3(
             tableTransform.position.x,
-            tableTransform.position.y + tableTransform.localScale.y + blockYScale / 2,
+            tableTransform.position.y + tableTransform.localScale.y,
             tableTransform.position.z + distanceBetweenStacks
         );
 
         midTower.towerObject.transform.position = new Vector3(
             tableTransform.position.x,
-            tableTransform.position.y + tableTransform.localScale.y + blockYScale / 2,
+            tableTransform.position.y + tableTransform.localScale.y,
             tableTransform.position.z
         );
 
         finalTower.towerObject.transform.position = new Vector3(
             tableTransform.position.x,
-            tableTransform.position.y + tableTransform.localScale.y + blockYScale / 2,
+            tableTransform.position.y + tableTransform.localScale.y,
             tableTransform.position.z - distanceBetweenStacks
         );
     }
 
     private void InitializeBaseStack()
     {
-        int tableCount = blocks.Length;
-        for (int i = 0; i < tableCount; i++)
+        for (int i = 0; i < 2 + DIFFICULTY; i++)
         {
             GameObject newInstance = Instantiate(blocks[i]);
             newInstance.transform.position = new Vector3(
                 startTower.towerObject.transform.position.x,
-                startTower.towerObject.transform.position.y + blockYScale * i,
+                startTower.towerObject.transform.position.y + blockYScale / 2 * i,
                 startTower.towerObject.transform.position.z
             );
             startTower.Push(newInstance);
@@ -188,7 +200,7 @@ public class HanoiGame : GameState
             ),
             new(
             brick.transform.position.x,
-            destination.towerObject.transform.position.y + 0.2f * destination.Count(),
+            destination.towerObject.transform.position.y + 0.1f * destination.Count(),
             destination.towerObject.transform.position.z
             ),
 

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
-    [SerializeField] protected LevelState levelState;
+    public LevelState levelState;
     [SerializeField] protected bool isSolved = false;
     [SerializeField] protected bool needChecking = true;
 

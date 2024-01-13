@@ -13,6 +13,7 @@ public class GraphNode : MonoBehaviour
     [SerializeField] PuzzlePiece currentPuzzle = null;
     [SerializeField] List<GraphNode> neighbours = new();
     [SerializeField] SlidingPuzzle slidingPuzzle;
+    [SerializeField] int interactableDistance = 5;
 
     public void SetId(int newId) { id = newId; }
     public int GetId() { return id; }
@@ -48,7 +49,19 @@ public class GraphNode : MonoBehaviour
     }
 
     private void OnMouseUpAsButton() {
-        if (!slidingPuzzle.GetIsMoving() && !slidingPuzzle.GetIsSolved()) { slidingPuzzle.MakeMove(this); }
+        if (!slidingPuzzle.GetIsMoving() && !slidingPuzzle.GetIsSolved() && IsButtonInRange()) { slidingPuzzle.MakeMove(this); }
+    }
+
+    private bool IsButtonInRange()
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        Transform buttonPosition = GetComponent<Transform>();
+        float distance = Vector3.Distance(player.transform.position, buttonPosition.position);
+        if (distance > interactableDistance)
+        {
+            return false;
+        }
+        else return true;
     }
 
     public GraphNode FindEmptyNeighbour()

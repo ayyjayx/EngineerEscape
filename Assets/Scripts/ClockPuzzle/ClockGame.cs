@@ -1,16 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class ClockGame : GameState
 {
-    int DIFFICULTY = 1;
+    int DIFFICULTY;
+    
     [SerializeField] RotatingClock[] clocks;
     [SerializeField] MathEquations mathEquations;
 
     void Start()
     {
         clocks = FindObjectsOfType<RotatingClock>();
+        DIFFICULTY = levelState.GetDifficulty();
         RandomizeAndSetOffsets();
     }
 
