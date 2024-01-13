@@ -6,7 +6,7 @@ public class DifficultyUI : MonoBehaviour
 {
     GameManager gameManager;
     [SerializeField] TMP_Text difficultyText;
-    [SerializeField] TMP_Text warningText;
+    [SerializeField] GameObject warning;
     [SerializeField] Toggle expertToggle;
 
     public void SetDifficultyLevel(int newDifficultyLevel) { gameManager.difficultyLevel = newDifficultyLevel; }
@@ -17,13 +17,13 @@ public class DifficultyUI : MonoBehaviour
         {
             gameManager.expertMode = true;
             difficultyText.color = Color.red;
-            warningText.enabled = true;
+            warning.SetActive(true);
         }
         else
         {
             gameManager.expertMode = false;
             difficultyText.color = Color.black;
-            warningText.enabled = false;
+            warning.SetActive(false);
         }
     }
 
@@ -37,7 +37,7 @@ public class DifficultyUI : MonoBehaviour
         {
             expertToggle.isOn = false;
             difficultyText.color = Color.black;
-            warningText.enabled = false;
+            warning.SetActive(false);
         }
     }
 
