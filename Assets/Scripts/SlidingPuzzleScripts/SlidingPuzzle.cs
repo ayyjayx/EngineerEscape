@@ -129,6 +129,7 @@ public class SlidingPuzzle : GameState
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        if (elapsedTime >= duration) { pieceToMove.transform.position = destinationPostition; }
         SetIsMoving(false);
     }
 
