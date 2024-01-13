@@ -13,7 +13,7 @@ public class DifficultyUI : MonoBehaviour
 
     public void ToggleExpertMode()
     {
-        if(expertToggle.isOn)
+        if (expertToggle.isOn)
         {
             gameManager.expertMode = true;
             difficultyText.color = Color.red;
@@ -27,7 +27,8 @@ public class DifficultyUI : MonoBehaviour
         }
     }
 
-    private void Start() {
+    private void Start()
+    {
         gameManager = GameManager.instance;
         if (gameManager.expertMode)
         {
@@ -47,7 +48,7 @@ public class DifficultyUI : MonoBehaviour
         difficultyText.text = difficultyLevelId switch
         {
             1 => "łatwy",
-            2 => "średni",
+            2 => "normalny",
             3 => "trudny",
             _ => "error",
         };
