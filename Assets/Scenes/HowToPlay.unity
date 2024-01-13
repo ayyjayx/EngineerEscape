@@ -918,8 +918,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -94.5638, y: 171.48}
-  m_SizeDelta: {x: 829.2739, y: 342.96}
+  m_AnchoredPosition: {x: -29.0465, y: 171.48}
+  m_SizeDelta: {x: 960.3087, y: 342.96}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1458084987
 MonoBehaviour:
@@ -941,8 +941,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Ruch postaci\u0105 - WASD\nRuch kamer\u0105 - Myszka\nInterakcja - Prawy
-    lewy myszy\nPauza - Backspace"
+  m_text: "Ruch postaci\u0105 - WASD\nRuch kamer\u0105 - Myszka\nInterakcja - Lewy
+    przycisk myszy\nPauza - Backspace"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d5ea6bda7daf2104b9a51520bf917db9, type: 2}
   m_sharedMaterial: {fileID: -6790585280815961255, guid: d5ea6bda7daf2104b9a51520bf917db9, type: 2}
@@ -1204,6 +1204,18 @@ PrefabInstance:
     - target: {fileID: 5906742611492144998, guid: 5fba1df56e08fef4fac1a05fded9b70f, type: 3}
       propertyPath: m_Name
       value: HowToPlayBG
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261596869626159511, guid: 5fba1df56e08fef4fac1a05fded9b70f, type: 3}
+      propertyPath: m_Color.b
+      value: 0.19607843
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261596869626159511, guid: 5fba1df56e08fef4fac1a05fded9b70f, type: 3}
+      propertyPath: m_Color.g
+      value: 0.627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 8261596869626159511, guid: 5fba1df56e08fef4fac1a05fded9b70f, type: 3}
+      propertyPath: m_Color.r
+      value: 0.85882354
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

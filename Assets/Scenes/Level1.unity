@@ -353,7 +353,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: aff2467f12112404ca76a90ea64adc90, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 245c02905566daf4cbe43e63ea1df234, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3967,7 +3967,7 @@ PrefabInstance:
       objectReference: {fileID: 1198811991}
     - target: {fileID: 5376577791648021758, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_text
-      value: "Kwidzy\u0144"
+      value: Al-abjar
       objectReference: {fileID: 0}
     - target: {fileID: 6611337182585302702, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_Name
@@ -5988,7 +5988,7 @@ PrefabInstance:
       objectReference: {fileID: 1601328156}
     - target: {fileID: 5376577791648021758, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_text
-      value: "Nowy S\u0105cz"
+      value: The room
       objectReference: {fileID: 0}
     - target: {fileID: 6611337182585302702, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_Name
@@ -6267,7 +6267,7 @@ Transform:
   m_GameObject: {fileID: 1424542571}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18.8, y: 0, z: -2.14}
+  m_LocalPosition: {x: 19.43, y: 0, z: -2.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8643,7 +8643,7 @@ PrefabInstance:
       objectReference: {fileID: 205613533}
     - target: {fileID: 5376577791648021758, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_text
-      value: "S\u0142upsk"
+      value: Oasis
       objectReference: {fileID: 0}
     - target: {fileID: 6611337182585302702, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_Name

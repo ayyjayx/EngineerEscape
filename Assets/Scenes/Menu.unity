@@ -1890,6 +1890,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 387095059949928324, guid: 7dfd0449495e54f47a04b0fb29b6d80a, type: 3}
+      propertyPath: myMixer
+      value: 
+      objectReference: {fileID: 24100000, guid: 4b63618fc62f87c47a917723e5f1fec6, type: 2}
+    - target: {fileID: 387095059949928324, guid: 7dfd0449495e54f47a04b0fb29b6d80a, type: 3}
       propertyPath: test_sfx
       value: 
       objectReference: {fileID: 8300000, guid: eebd539e285dfa14e9ed4c2f23f571d5, type: 3}
@@ -1940,6 +1944,10 @@ PrefabInstance:
     - target: {fileID: 7170307780604083509, guid: 7dfd0449495e54f47a04b0fb29b6d80a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9146646349042616288, guid: 7dfd0449495e54f47a04b0fb29b6d80a, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
