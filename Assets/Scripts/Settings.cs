@@ -2,20 +2,24 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class VolumeSettings : MonoBehaviour
+public class Settings : MonoBehaviour
 {
     [SerializeField] private AudioMixer myMixer;
     [SerializeField] private Slider musicSlider;
     [SerializeField] private Slider SFXSlider;
+    [SerializeField] private Slider sensitivitySlider;
 
     private void Start()
     {
-        if (PlayerPrefs.HasKey("musicVolume")) { LoadVolume(); }
+        if (PlayerPrefs.HasKey("musicVolume") && PlayerPrefs.HasKey("sfxVolume")) { LoadVolume(); }
         else
         {
             SetMusicVolume();
             SetSFXVolume();
         }
+
+        if (!PlayerPrefs.HasKey("sensitivity")) { SetSensitivity(); }
+        else { sensitivitySlider.value = PlayerPrefs.GetFloat("sensitivity"); }
     }
 
     public void SetMusicVolume()
@@ -38,5 +42,11 @@ public class VolumeSettings : MonoBehaviour
         SFXSlider.value = PlayerPrefs.GetFloat("sfxVolume");
         SetMusicVolume();
         SetSFXVolume();
+    }
+
+    public void SetSensitivity()
+    {
+        float sens = sensitivitySlider.value;
+        PlayerPrefs.SetFloat("sensitivity", sens);
     }
 }

@@ -179,6 +179,7 @@ MonoBehaviour:
   menu: {fileID: 8300000, guid: 60729e8b4047b2647a4f790fd47a89d7, type: 3}
   game: {fileID: 8300000, guid: 475676fe4639999429b688c4fb1f36ca, type: 3}
   test_sfx: {fileID: 8300000, guid: eebd539e285dfa14e9ed4c2f23f571d5, type: 3}
+  myMixer: {fileID: 24100000, guid: 4b63618fc62f87c47a917723e5f1fec6, type: 2}
 --- !u!1 &2832809039236323027
 GameObject:
   m_ObjectHideFlags: 0

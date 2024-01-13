@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine.Audio;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,40 +14,43 @@ public class AudioManager : MonoBehaviour
     public AudioClip game;
     public AudioClip test_sfx;
 
-    // public bool is_playing = false;
-    // public static AudioManager instance;
-    // private void Awake()
-    // {
-    //     if (instance == null)
-    //     {
-    //         instance = this;
-    //         DontDestroyOnLoad(gameObject);
-    //     }
-    //     else
-    //     {
-    //         Destroy(gameObject);
-    //     }
+    [SerializeField] private AudioMixer myMixer;
 
-    //     if (SceneManager.GetActiveScene().buildIndex == 1)
-    //     {
-    //         PlayGameMusic();
-    //     }
-    //     else
-    //     {
-    //         PlayMenuMusic();
-    //     }
-    //     Debug.Log(is_playing);
-    // }
+    // public bool is_playing = false;
+    public static AudioManager instance;
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 
     private void Start()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (PlayerPrefs.HasKey("musicVolume") && PlayerPrefs.HasKey("sfxVolume"))
+        {
+            float musicValue = PlayerPrefs.GetFloat("musicVolume");
+            myMixer.SetFloat("music", Mathf.Log10(musicValue) * 20);
+            float SFXValue = PlayerPrefs.GetFloat("sfxVolume");
+            myMixer.SetFloat("sfx", Mathf.Log10(SFXValue) * 20);
+        }
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "Level1" && musicSource.clip != game)
         {
             musicSource.Stop();
             musicSource.clip = game;
             musicSource.Play();
         }
-        else
+        else if (SceneManager.GetActiveScene().name != "Level1" && musicSource.clip != menu)
         {
             musicSource.Stop();
             musicSource.clip = menu;
@@ -56,9 +58,35 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    // private void Start()
+    // {
+    //     if (SceneManager.GetActiveScene().buildIndex == 1)
+    //     {
+    //         musicSource.Stop();
+    //         musicSource.clip = game;
+    //         musicSource.Play();
+    //     }
+    //     else
+    //     {
+    //         musicSource.Stop();
+    //         musicSource.clip = menu;
+    //         musicSource.Play();
+    //     }
+    // }
+
     public void PlaySFX(AudioClip clip)
     {
         SFXSource.PlayOneShot(clip);
+    }
+
+    public void PauseMusic()
+    {
+        musicSource.Pause();
+    }
+
+    public void UnpauseMusic()
+    {
+        musicSource.UnPause();
     }
 
     // public void PlayGameMusic()
@@ -66,18 +94,12 @@ public class AudioManager : MonoBehaviour
     //     musicSource.Stop();
     //     musicSource.clip = game;
     //     musicSource.Play();
-    //     is_playing = false;
     // }
 
     // public void PlayMenuMusic()
     // {
-    //     if (is_playing == false)
-    //     {
-    //         musicSource.Stop();
-    //         musicSource.clip = menu;
-    //         musicSource.Play();
-    //         is_playing = true;
-    //     }
-
+    //     musicSource.Stop();
+    //     musicSource.clip = menu;
+    //     musicSource.Play();
     // }
 }
