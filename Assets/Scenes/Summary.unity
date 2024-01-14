@@ -536,8 +536,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Pozosta\u0142o: 00:00"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9015a64f67b37fe45abb9698eb73afc6, type: 2}
-  m_sharedMaterial: {fileID: -3722606706914732371, guid: 9015a64f67b37fe45abb9698eb73afc6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 08029c14442e470419c0879b75e1e01e, type: 2}
+  m_sharedMaterial: {fileID: -6558055166129347643, guid: 08029c14442e470419c0879b75e1e01e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -984,8 +984,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Rozwi\u0105zane zagadki: 0/3"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 9015a64f67b37fe45abb9698eb73afc6, type: 2}
-  m_sharedMaterial: {fileID: -3722606706914732371, guid: 9015a64f67b37fe45abb9698eb73afc6, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 08029c14442e470419c0879b75e1e01e, type: 2}
+  m_sharedMaterial: {fileID: -6558055166129347643, guid: 08029c14442e470419c0879b75e1e01e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1015,7 +1015,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 4
   m_VerticalAlignment: 512
   m_textAlignment: 65535
