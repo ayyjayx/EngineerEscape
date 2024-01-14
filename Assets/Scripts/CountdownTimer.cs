@@ -4,18 +4,23 @@ using UnityEngine.SceneManagement;
 
 public class Countdown : MonoBehaviour
 {
-    [SerializeField] ScoreHandler scoreHandler;
+    ScoreHandler scoreHandler;
     TMP_Text timerText;
+    [SerializeField] float timeLeft = 900f;
+
+    private void Awake() { scoreHandler = ScoreHandler.instance; }
 
     void Start()
     {
+        scoreHandler.SetTimeLeft(timeLeft);
         timerText = GetComponent<TMP_Text>();
         timerText.text = "START";
     }
 
     void Update()
     {
-        if (scoreHandler.GetTimeLeft() > 0) {
+        if (scoreHandler.GetTimeLeft() > 0)
+        {
             scoreHandler.SetTimeLeft(scoreHandler.GetTimeLeft() - Time.deltaTime);
 
             int minuty = Mathf.FloorToInt(scoreHandler.GetTimeLeft() / 60);

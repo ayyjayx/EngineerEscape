@@ -14,7 +14,8 @@ public class LevelState : MonoBehaviour
     GameManager gameManager;
     public AudioManager audioManager;
 
-    private void Awake() {
+    private void Awake()
+    {
         gameManager = GameManager.instance;
         audioManager = AudioManager.instance;
     }
@@ -35,7 +36,8 @@ public class LevelState : MonoBehaviour
         scoreHandler.SetGamesSolvedScore(gamesSolved);
     }
 
-    private void Update() {
+    private void Update()
+    {
         if (gamesSolved == gameStates.Length)
         {
             exitDoor.SetShouldOpen(true);
