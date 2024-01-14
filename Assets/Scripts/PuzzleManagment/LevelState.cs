@@ -12,7 +12,7 @@ public class LevelState : MonoBehaviour
     [SerializeField] ScoreHandler scoreHandler;
 
     GameManager gameManager;
-    AudioManager audioManager;
+    public AudioManager audioManager;
 
     private void Awake() {
         gameManager = GameManager.instance;

@@ -14,6 +14,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip game;
     public AudioClip button;
     public AudioClip rotateClock;
+    public AudioClip success;
 
     [SerializeField] private AudioMixer myMixer;
 

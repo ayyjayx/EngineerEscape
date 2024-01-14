@@ -43,7 +43,7 @@ public class HanoiButton : MonoBehaviour
 
         if (hanoiGame.GetIsSolved())
         {
-            GetComponent<Renderer>().material.color = Color.gray;
+            GetComponent<Renderer>().material = buttonSolvedMaterial;
         }
     }
 

@@ -168,6 +168,7 @@ public class HanoiGame : GameState
         if (GetNeedChecking() && GetIsSolved())
         {
             SolveGame();
+            levelState.audioManager.PlaySFX(levelState.audioManager.success);
         }
     }
 

@@ -1417,6 +1417,10 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 6531141647141680669, guid: b3f4bc2351494fa43a602b4e09b9e360, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a78ad33952c660e4aab9e5d8e39de882, type: 2}
     - target: {fileID: 6554633805020919761, guid: b3f4bc2351494fa43a602b4e09b9e360, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -2210,7 +2214,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 2c83327a342a24d4484b4bb9b9de933f, type: 2}
   - {fileID: 2100000, guid: 43b4ce7e9c5af0341801e8bb62681185, type: 2}
   - {fileID: 2100000, guid: 8424f8aa39e824b4a9e1d03a1a6861f1, type: 2}
-  - {fileID: 2100000, guid: 5c5a54cac992212479a1a5d816d8aec3, type: 2}
+  - {fileID: 2100000, guid: 88b6bb268fdf755439a7673959043247, type: 2}
   - {fileID: 2100000, guid: 13b736bd097b26143b001d936136f392, type: 2}
   - {fileID: 2100000, guid: e2ca683918abc6246b21f790216ca4b8, type: 2}
   - {fileID: 2100000, guid: 30661b65d8e8d854a87917c1183339f4, type: 2}
@@ -4966,6 +4970,10 @@ PrefabInstance:
       propertyPath: correspondingMapText
       value: 
       objectReference: {fileID: 1198811991}
+    - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+      propertyPath: interactableDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5376577791648021758, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_text
       value: 'Am-Ugus
@@ -5370,6 +5378,7 @@ MonoBehaviour:
   gameStates: []
   exitDoor: {fileID: 0}
   scoreHandler: {fileID: 933304390}
+  audioManager: {fileID: 0}
 --- !u!114 &831579726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6190,6 +6199,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387095059949928324, guid: 7dfd0449495e54f47a04b0fb29b6d80a, type: 3}
+      propertyPath: success
+      value: 
+      objectReference: {fileID: 8300000, guid: 18a135ef3ecc31f4b97e5ee2ecd3b41d, type: 3}
     - target: {fileID: 912262961210355832, guid: 7dfd0449495e54f47a04b0fb29b6d80a, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -7712,13 +7725,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350115590}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: -0.7071068}
-  m_LocalPosition: {x: 0, y: 4.37, z: -0}
+  m_LocalRotation: {x: 0.8413861, y: -0, z: -0, w: -0.5404346}
+  m_LocalPosition: {x: 0, y: 6.15, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2134956197}
-  m_LocalEulerAnglesHint: {x: 270, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 245.426, y: 0, z: 0}
 --- !u!108 &1350115592
 Light:
   m_ObjectHideFlags: 0
@@ -7731,9 +7744,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 5
-  m_Range: 15.74
-  m_SpotAngle: 97.04083
+  m_Intensity: 6.57
+  m_Range: 11.9
+  m_SpotAngle: 85.38928
   m_InnerSpotAngle: 2
   m_CookieSize: 10
   m_Shadows:
@@ -7773,7 +7786,7 @@ Light:
   m_Lightmapping: 4
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 5
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -7861,9 +7874,13 @@ PrefabInstance:
       propertyPath: correspondingMapText
       value: 
       objectReference: {fileID: 1601328156}
+    - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+      propertyPath: interactableDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5376577791648021758, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_text
-      value: "Tw\xF3j pok\xF3j\n"
+      value: "Tw\xF3j dom\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5376577791648021758, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_fontSize
@@ -8525,11 +8542,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000010945598816, guid: ab440feedacbd0d40aaac5abd4acd8fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 9.01
+      value: 9.045
       objectReference: {fileID: 0}
     - target: {fileID: 4000010945598816, guid: ab440feedacbd0d40aaac5abd4acd8fd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.9
+      value: -11.8
       objectReference: {fileID: 0}
     - target: {fileID: 4000010945598816, guid: ab440feedacbd0d40aaac5abd4acd8fd, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8648,7 +8665,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bc005c881dea0a243b900e879de2d617, type: 2}
+  - {fileID: 2100000, guid: eeefa710181736c4b9737b88c2c29069, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10844,6 +10861,10 @@ PrefabInstance:
       propertyPath: correspondingMapText
       value: 
       objectReference: {fileID: 205613533}
+    - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+      propertyPath: interactableDistance
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5376577791648021758, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: m_text
       value: 'Yo-Ama

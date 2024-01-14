@@ -58,6 +58,7 @@ public class ClockGame : GameState
     private void Update() {
         if (GetNeedChecking() && GetIsSolved())
         {
+            levelState.audioManager.PlaySFX(levelState.audioManager.success);
             SolveGame();
         }
     }

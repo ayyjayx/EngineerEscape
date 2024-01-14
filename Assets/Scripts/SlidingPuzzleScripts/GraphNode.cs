@@ -51,8 +51,11 @@ public class GraphNode : MonoBehaviour
     }
 
     private void OnMouseUpAsButton() {
-        audioManager.PlaySFX(audioManager.button);
-        if (!slidingPuzzle.GetIsMoving() && !slidingPuzzle.GetIsSolved() && IsButtonInRange()) { slidingPuzzle.MakeMove(this); }
+        if (IsButtonInRange())
+        {
+            audioManager.PlaySFX(audioManager.button);
+            if (!slidingPuzzle.GetIsMoving() && !slidingPuzzle.GetIsSolved()) { slidingPuzzle.MakeMove(this); }
+        }
     }
 
     private bool IsButtonInRange()

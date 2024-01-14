@@ -150,6 +150,7 @@ public class SlidingPuzzle : GameState
         }
         if (GetNeedChecking() && GetIsSolved())
         {
+            levelState.audioManager.PlaySFX(levelState.audioManager.success);
             SolveGame();
         }
     }
