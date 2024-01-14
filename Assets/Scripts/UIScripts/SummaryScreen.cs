@@ -36,7 +36,7 @@ public class SummaryScreen : MonoBehaviour
             resultText.text = "Porażka!";
             resultText.color = Color.red;
         }
-        timeLeftText.text = "Pozostało: " + formattedText;
+        timeLeftText.text = "Pozostało: " + formattedText + " m";
         puzzlesSolvedText.text = "Rozwiązane zagadki: " + scoreHandler.GetGamesSolvedScore() +"/3";
     }
 

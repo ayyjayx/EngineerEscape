@@ -22,7 +22,7 @@
   "hard": [
     {
       "equation": "2+(-2)*2",
-      "solution": "6"
+      "solution": "-2"
     },
     {
       "equation": "-8*(-8)/2/8",
