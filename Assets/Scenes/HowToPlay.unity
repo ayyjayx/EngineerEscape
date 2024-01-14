@@ -652,7 +652,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Ruch postaci\u0105 - WASD / klawisze strza\u0142ek\nRuch kamer\u0105 -
-    Myszka\nInterakcja - Lewy przycisk myszy\nPauza - Backspace"
+    Myszka\nInterakcja - Lewy przycisk myszy\nPauza - Escape"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 08029c14442e470419c0879b75e1e01e, type: 2}
   m_sharedMaterial: {fileID: -6558055166129347643, guid: 08029c14442e470419c0879b75e1e01e, type: 2}
