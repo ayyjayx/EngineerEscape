@@ -4959,6 +4959,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1325722206}
     - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+      propertyPath: solvedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bedb8470bd89da489a595de3ac834ed, type: 2}
+    - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: correspondingMapText
       value: 
       objectReference: {fileID: 1198811991}
@@ -7850,6 +7854,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 816545563}
     - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+      propertyPath: solvedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bedb8470bd89da489a595de3ac834ed, type: 2}
+    - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: correspondingMapText
       value: 
       objectReference: {fileID: 1601328156}
@@ -9514,7 +9522,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1613298380
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10741,6 +10749,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   mathEquations: {fileID: 1223174103}
+  solvedMaterial: {fileID: 2100000, guid: 2bedb8470bd89da489a595de3ac834ed, type: 2}
 --- !u!4 &1879917191
 Transform:
   m_ObjectHideFlags: 0
@@ -10827,6 +10836,10 @@ PrefabInstance:
       propertyPath: chosenHourText
       value: 
       objectReference: {fileID: 217436455}
+    - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+      propertyPath: solvedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 2bedb8470bd89da489a595de3ac834ed, type: 2}
     - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: correspondingMapText
       value: 
