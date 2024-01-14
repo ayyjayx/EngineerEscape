@@ -8,12 +8,15 @@ public class Countdown : MonoBehaviour
     TMP_Text timerText;
     [SerializeField] float timeLeft = 900f;
 
-    private void Awake() { scoreHandler = ScoreHandler.instance; }
+    private void Awake()
+    {
+        scoreHandler = ScoreHandler.instance;
+        timerText = GetComponent<TMP_Text>();
+    }
 
     void Start()
     {
         scoreHandler.SetTimeLeft(timeLeft);
-        timerText = GetComponent<TMP_Text>();
         timerText.text = "START";
     }
 

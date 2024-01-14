@@ -9,7 +9,7 @@ public class LevelState : MonoBehaviour
 
     [SerializeField] GameState[] gameStates;
     [SerializeField] OpenDoor exitDoor;
-    [SerializeField] ScoreHandler scoreHandler;
+    ScoreHandler scoreHandler;
 
     GameManager gameManager;
     public AudioManager audioManager;
@@ -18,6 +18,7 @@ public class LevelState : MonoBehaviour
     {
         gameManager = GameManager.instance;
         audioManager = AudioManager.instance;
+        scoreHandler = ScoreHandler.instance;
     }
 
     public int GetDifficulty() { return gameManager.difficultyLevel; }
