@@ -7,6 +7,7 @@ public class ClockGame : GameState
     
     [SerializeField] RotatingClock[] clocks;
     [SerializeField] MathEquations mathEquations;
+    [SerializeField] Material solvedMaterial;
 
     void Start()
     {
@@ -47,6 +48,11 @@ public class ClockGame : GameState
             }
         }
         SetIsSolved(true);
+
+        foreach (RotatingClock clock in clocks)
+        {
+            clock.GetComponent<MeshRenderer>().material = solvedMaterial;
+        }
     }
 
     private void Update() {

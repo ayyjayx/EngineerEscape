@@ -12,9 +12,11 @@ public class LevelState : MonoBehaviour
     [SerializeField] ScoreHandler scoreHandler;
 
     GameManager gameManager;
+    AudioManager audioManager;
 
     private void Awake() {
         gameManager = GameManager.instance;
+        audioManager = AudioManager.instance;
     }
 
     public int GetDifficulty() { return gameManager.difficultyLevel; }

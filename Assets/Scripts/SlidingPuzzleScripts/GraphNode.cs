@@ -15,6 +15,8 @@ public class GraphNode : MonoBehaviour
     [SerializeField] SlidingPuzzle slidingPuzzle;
     [SerializeField] int interactableDistance = 8;
 
+    AudioManager audioManager;
+
     public void SetId(int newId) { id = newId; }
     public int GetId() { return id; }
 
@@ -49,6 +51,7 @@ public class GraphNode : MonoBehaviour
     }
 
     private void OnMouseUpAsButton() {
+        audioManager.PlaySFX(audioManager.button);
         if (!slidingPuzzle.GetIsMoving() && !slidingPuzzle.GetIsSolved() && IsButtonInRange()) { slidingPuzzle.MakeMove(this); }
     }
 
@@ -71,6 +74,11 @@ public class GraphNode : MonoBehaviour
             if (neighbour.IsEmpty()) { return neighbour; }
         } 
         return null;
+    }
+
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Start() {

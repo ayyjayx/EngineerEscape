@@ -23,8 +23,9 @@ public class RotatingClock : MonoBehaviour
 
     [SerializeField] TMP_Text correspondingMapText;
     [SerializeField] TMP_Text chosenHourText;
-
     [SerializeField] ClockGame clockGame;
+
+    AudioManager audioManager;
 
     public bool IsRootClock() { return rootClock; }
     public void SetOffset(int value) { offset = value; }
@@ -33,7 +34,7 @@ public class RotatingClock : MonoBehaviour
 
     private void OnMouseUpAsButton()
     {
-        if (!isRotating && IsButtonInRange())
+        if (!isRotating && IsButtonInRange() && !clockGame.GetIsSolved())
         {
             isRotating = true; // Rozpoczęcie rotacji po kliknięciu.
         }
@@ -44,8 +45,7 @@ public class RotatingClock : MonoBehaviour
         initialRotation = transform.eulerAngles;
         currentHour = int.Parse(System.DateTime.Now.ToString("hh"));
         if(IsRootClock()) { correspondingMapText.text = "0"; }
-
-        // UpdateClockState(GetCurrentHourWithOffset());
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -128,7 +128,11 @@ public class RotatingClock : MonoBehaviour
         {
             return false;
         }
-        else return true;
+        else
+        {
+            audioManager.PlaySFX(audioManager.rotateClock);
+            return true;
+        }
     }
 
     public bool CheckIsSolved() { return isClockSolved; }

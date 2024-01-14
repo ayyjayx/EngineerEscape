@@ -10,6 +10,7 @@ public class Navigator : MonoBehaviour
     public void Settings() { SceneManager.LoadScene("Settings"); }
     public void DifficultySelection() { SceneManager.LoadScene("DifficultySelection"); }
     public void HowToPlay() { SceneManager.LoadScene("HowToPlay"); } 
+    public void Credits() { SceneManager.LoadScene("Credits"); } 
     public void BackToMenu()
     {
         Time.timeScale = 1f;

@@ -12,12 +12,13 @@ public class AudioManager : MonoBehaviour
     [Header("Audio Clip")]
     public AudioClip menu;
     public AudioClip game;
-    public AudioClip test_sfx;
+    public AudioClip button;
+    public AudioClip rotateClock;
 
     [SerializeField] private AudioMixer myMixer;
 
-    // public bool is_playing = false;
     public static AudioManager instance;
+
     private void Awake()
     {
         if (instance == null)
