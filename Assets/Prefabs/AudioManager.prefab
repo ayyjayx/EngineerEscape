@@ -180,6 +180,8 @@ MonoBehaviour:
   game: {fileID: 8300000, guid: 475676fe4639999429b688c4fb1f36ca, type: 3}
   button: {fileID: 8300000, guid: 54c7a4238a6abbc4e9730e910d547fbf, type: 3}
   rotateClock: {fileID: 8300000, guid: 1eb244ddffd302e4e9eb3e54b021daf4, type: 3}
+  success: {fileID: 8300000, guid: 18a135ef3ecc31f4b97e5ee2ecd3b41d, type: 3}
+  scaryVoice: {fileID: 8300000, guid: d3f0c6d3f5e80f3468c75ade16195a77, type: 3}
   myMixer: {fileID: 24100000, guid: 4b63618fc62f87c47a917723e5f1fec6, type: 2}
 --- !u!1 &2832809039236323027
 GameObject:

@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip button;
     public AudioClip rotateClock;
     public AudioClip success;
+    public AudioClip scaryVoice;
 
     [SerializeField] private AudioMixer myMixer;
 
@@ -51,6 +52,7 @@ public class AudioManager : MonoBehaviour
             musicSource.Stop();
             musicSource.clip = game;
             musicSource.Play();
+            SFXSource.PlayOneShot(scaryVoice);
         }
         else if (SceneManager.GetActiveScene().name != "Level1" && musicSource.clip != menu)
         {
@@ -81,14 +83,16 @@ public class AudioManager : MonoBehaviour
         SFXSource.PlayOneShot(clip);
     }
 
-    public void PauseMusic()
+    public void PauseSound()
     {
         musicSource.Pause();
+        SFXSource.Pause();
     }
 
-    public void UnpauseMusic()
+    public void UnpauseSound()
     {
         musicSource.UnPause();
+        SFXSource.UnPause();
     }
 
     // public void PlayGameMusic()

@@ -6576,10 +6576,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 387095059949928324, guid: 7dfd0449495e54f47a04b0fb29b6d80a, type: 3}
-      propertyPath: success
-      value: 
-      objectReference: {fileID: 8300000, guid: 18a135ef3ecc31f4b97e5ee2ecd3b41d, type: 3}
     - target: {fileID: 912262961210355832, guid: 7dfd0449495e54f47a04b0fb29b6d80a, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -9914,9 +9910,7 @@ PlayableDirector:
   m_WrapMode: 2
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
-  m_SceneBindings:
-  - key: {fileID: 8255891947514834350, guid: fcab934e43181cb42aae28199dcd51f9, type: 2}
-    value: {fileID: 1689745121}
+  m_SceneBindings: []
   m_ExposedReferences:
     m_References:
     - a117c2d322679074bac3ca6e3cbaa85d: {fileID: 60566618}
@@ -10777,11 +10771,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab440feedacbd0d40aaac5abd4acd8fd, type: 3}
---- !u!82 &1689745121 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1696474996780130281, guid: 7dfd0449495e54f47a04b0fb29b6d80a, type: 3}
-  m_PrefabInstance: {fileID: 1001730345}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1704770385
 GameObject:
   m_ObjectHideFlags: 0
