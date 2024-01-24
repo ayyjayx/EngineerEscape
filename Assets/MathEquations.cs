@@ -30,27 +30,45 @@ public class MathEquations : MonoBehaviour
                 _ => null,
             };
         }
+
     }
 
-    public EquationList equationsList = new();
+    [System.Serializable]
+    public class EquationSides
+    {
+        public EquationList left;
+        public EquationList right;
+
+        public List<EquationData> GetListForChosenSide(string side, int difficultyLevel)
+        {
+            return side switch
+            {
+                "left" => left.GetList(difficultyLevel),
+                "right" => right.GetList(difficultyLevel),
+                _ => null,
+            };
+        }
+    }
+
+    public EquationSides equationsSides = new();
 
     void Start()
     {
-        equationsList = JsonUtility.FromJson<EquationList>(equationsJsonFile.text);
+        equationsSides = JsonUtility.FromJson<EquationSides>(equationsJsonFile.text);
     }
 
-    public int GetEquationsListCount(int difficultyLevel)
+    public int GetEquationsListCount(string side, int difficultyLevel)
     {
-        return equationsList.GetList(difficultyLevel).Count;
+        return equationsSides.GetListForChosenSide(side, difficultyLevel).Count;
     }
 
-    public EquationData GetEquation(int difficultyLevel, int index)
+    public EquationData GetEquation(string side, int difficultyLevel, int index)
     {
-        List<EquationData> equationsForChosenDifficulty = equationsList.GetList(difficultyLevel);
+        List<EquationData> equationsForChosenSideAndDifficulty = equationsSides.GetListForChosenSide(side, difficultyLevel);
 
-        if (equationsForChosenDifficulty != null && index < equationsForChosenDifficulty.Count)
+        if (equationsForChosenSideAndDifficulty != null && index < equationsForChosenSideAndDifficulty.Count)
         {
-            EquationData chosenEquation = equationsForChosenDifficulty[index];
+            EquationData chosenEquation = equationsForChosenSideAndDifficulty[index];
             return chosenEquation;
         }
         return null;
