@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class SettingsManager : MonoBehaviour
@@ -15,6 +16,13 @@ public class SettingsManager : MonoBehaviour
         else
         {
             Destroy(gameObject);
+        }
+
+        ResolutionSetting resolutionSetting = FindObjectOfType<ResolutionSetting>();
+        if (SceneManager.GetActiveScene().name == "Settings")
+        {
+            resolutionSetting.GetResolutions();
+            resolutionSetting.AddResolutionsToDropdownMenu();
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 public class ClockGame : GameState
 {
     int DIFFICULTY;
-    
+
     [SerializeField] RotatingClock[] clocks;
     [SerializeField] MathEquations mathEquations;
     [SerializeField] Material solvedMaterial;
@@ -72,7 +72,8 @@ public class ClockGame : GameState
         }
     }
 
-    private void Update() {
+    private void Update()
+    {
         if (GetNeedChecking() && GetIsSolved())
         {
             levelState.audioManager.PlaySFX(levelState.audioManager.success);
