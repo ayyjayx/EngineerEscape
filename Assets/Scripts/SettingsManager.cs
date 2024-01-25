@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class SettingsManager : MonoBehaviour
@@ -18,7 +19,10 @@ public class SettingsManager : MonoBehaviour
         }
 
         ResolutionSetting resolutionSetting = FindObjectOfType<ResolutionSetting>();
-        resolutionSetting.GetResolutions();
-        resolutionSetting.AddResolutionsToDropdownMenu();
+        if (SceneManager.GetActiveScene().name == "Settings")
+        {
+            resolutionSetting.GetResolutions();
+            resolutionSetting.AddResolutionsToDropdownMenu();
+        }
     }
 }
