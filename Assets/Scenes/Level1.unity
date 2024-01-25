@@ -824,6 +824,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9100221613764866041, guid: cdf4e86a39d7116429af9c9d7d4769f5, type: 3}
+      propertyPath: difficultyLevel
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1936,7 +1940,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.553853, y: 2.1349611, z: 10.100403, w: 2.6707735}
+  m_margin: {x: 9.55579, y: 2.1586537, z: 10.131341, w: 2.7038922}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -5295,6 +5299,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -8688554287283361881, guid: e763532a405ff894eabb7e784d79d3d3, type: 2}
     - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+      propertyPath: side
+      value: right
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: clockGame
       value: 
       objectReference: {fileID: 1879917190}
@@ -5721,7 +5729,6 @@ MonoBehaviour:
   gamesSolved: 0
   gameStates: []
   exitDoor: {fileID: 0}
-  scoreHandler: {fileID: 933304390}
   audioManager: {fileID: 0}
 --- !u!114 &831579726
 MonoBehaviour:
@@ -6324,17 +6331,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4000012181423232, guid: ce2146ce387403f49849aab35d406dbd, type: 3}
   m_PrefabInstance: {fileID: 891016821}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &933304390 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7713129629385843389, guid: 6634564f12a158a4fa9458c4617ccbd8, type: 3}
-  m_PrefabInstance: {fileID: 2309242926681339120}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc09a9c2ee10ab740857b7630f87739b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &970835787
 GameObject:
   m_ObjectHideFlags: 0
@@ -7562,7 +7558,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.553853, y: 2.1349611, z: 10.100403, w: 2.6368337}
+  m_margin: {x: 9.576026, y: 2.1813538, z: 10.104392, w: 2.6843355}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -7771,10 +7767,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equationsJsonFile: {fileID: 4900000, guid: 9cdeb4872b6443f4199b7ca87a5cc7f0, type: 3}
-  equationsList:
-    easy: []
-    medium: []
-    hard: []
+  equationsSides:
+    left:
+      easy: []
+      medium: []
+      hard: []
+    right:
+      easy: []
+      medium: []
+      hard: []
 --- !u!1 &1229506615
 GameObject:
   m_ObjectHideFlags: 0
@@ -10184,8 +10185,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 0.8
-  m_fontSizeBase: 0.8
+  m_fontSize: 0.75
+  m_fontSizeBase: 0.75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -10220,7 +10221,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.553853, y: 2.1349611, z: 10.100403, w: 2.6368337}
+  m_margin: {x: 9.574776, y: 2.183722, z: 10.1096, w: 2.6808217}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0
@@ -10821,7 +10822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 981f2983539a58c4f8f8aa086e9c829e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreHandler: {fileID: 933304390}
+  timeLeft: 900
 --- !u!114 &1704770388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11732,6 +11733,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: -8688554287283361881, guid: e763532a405ff894eabb7e784d79d3d3, type: 2}
+    - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
+      propertyPath: side
+      value: left
+      objectReference: {fileID: 0}
     - target: {fileID: 2747083950310991336, guid: a51726fdc7d692f45b875f0233e33781, type: 3}
       propertyPath: clockGame
       value: 
