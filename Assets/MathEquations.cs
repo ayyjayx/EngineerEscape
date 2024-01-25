@@ -12,7 +12,7 @@ public class MathEquations : MonoBehaviour
         public string equation;
         public int solution;
     }
-    
+
     [System.Serializable]
     public class EquationList
     {

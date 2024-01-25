@@ -16,5 +16,9 @@ public class SettingsManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        ResolutionSetting resolutionSetting = FindObjectOfType<ResolutionSetting>();
+        resolutionSetting.GetResolutions();
+        resolutionSetting.AddResolutionsToDropdownMenu();
     }
 }
