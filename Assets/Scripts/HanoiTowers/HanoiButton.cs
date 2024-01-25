@@ -33,7 +33,7 @@ public class HanoiButton : MonoBehaviour
         {
             if (IsButtonInRange())
             {
-                audioManager.PlaySFX(audioManager.test_sfx);
+                audioManager.PlaySFX(audioManager.button);
                 TurnOn();
             }
         }
@@ -43,7 +43,7 @@ public class HanoiButton : MonoBehaviour
 
         if (hanoiGame.GetIsSolved())
         {
-            GetComponent<Renderer>().material.color = Color.gray;
+            GetComponent<Renderer>().material = buttonSolvedMaterial;
         }
     }
 

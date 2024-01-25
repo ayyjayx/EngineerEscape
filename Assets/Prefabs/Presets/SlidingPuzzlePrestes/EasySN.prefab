@@ -125,6 +125,7 @@ MonoBehaviour:
   - {fileID: 4847286512698153791}
   - {fileID: 3114682195194891379}
   slidingPuzzle: {fileID: 0}
+  interactableDistance: 8
 --- !u!1 &1064035801138774760
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +252,7 @@ MonoBehaviour:
   - {fileID: 6174142971423363781}
   - {fileID: 4859539810085064804}
   slidingPuzzle: {fileID: 0}
+  interactableDistance: 8
 --- !u!1 &1547177728398364716
 GameObject:
   m_ObjectHideFlags: 0
@@ -276,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 1547177728398364716}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.22, y: 0, z: -1.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -412,6 +414,7 @@ MonoBehaviour:
   - {fileID: 4859539810085064804}
   - {fileID: 3114682195194891379}
   slidingPuzzle: {fileID: 0}
+  interactableDistance: 8
 --- !u!1 &3598464064384822054
 GameObject:
   m_ObjectHideFlags: 0
@@ -537,6 +540,7 @@ MonoBehaviour:
   - {fileID: 4847286512698153791}
   - {fileID: 3114682195194891379}
   slidingPuzzle: {fileID: 0}
+  interactableDistance: 8
 --- !u!1 &6225941360752680633
 GameObject:
   m_ObjectHideFlags: 0
@@ -662,3 +666,4 @@ MonoBehaviour:
   - {fileID: 4859539810085064804}
   - {fileID: 3114682195194891379}
   slidingPuzzle: {fileID: 0}
+  interactableDistance: 8

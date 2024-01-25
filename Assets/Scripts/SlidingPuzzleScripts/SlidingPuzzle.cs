@@ -129,6 +129,7 @@ public class SlidingPuzzle : GameState
             elapsedTime += Time.deltaTime;
             yield return null;
         }
+        if (elapsedTime >= duration) { pieceToMove.transform.position = destinationPostition; }
         SetIsMoving(false);
     }
 
@@ -149,6 +150,7 @@ public class SlidingPuzzle : GameState
         }
         if (GetNeedChecking() && GetIsSolved())
         {
+            levelState.audioManager.PlaySFX(levelState.audioManager.success);
             SolveGame();
         }
     }

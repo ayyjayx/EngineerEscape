@@ -12,6 +12,7 @@ public class LookAround : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        if (PlayerPrefs.HasKey("sensitivity")) { SetSensitivity(); }
     }
 
     void Update()
@@ -24,5 +25,10 @@ public class LookAround : MonoBehaviour
         rotationX -= mouseYMove;
         rotationX = Mathf.Clamp(rotationX, -90f, 90f);
         transform.localRotation = Quaternion.Euler(rotationX, 0f, 0f);
+    }
+
+    private void SetSensitivity()
+    {
+        sensitivity = PlayerPrefs.GetFloat("sensitivity") * 1000;
     }
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ScoreHandler : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ScoreHandler : MonoBehaviour
     public void SetTimeLeft(float time) { timeLeft = time; }
     public void SetGamesNumber(int number) { gamesNumber = number; }
     public void SetGamesSolvedScore(int score) { gamesSolvedScore = score; }
-    
+
     public float GetTimeLeft() { return timeLeft; }
     public int GetGamesNumber() { return gamesNumber; }
     public int GetGamesSolvedScore() { return gamesSolvedScore; }

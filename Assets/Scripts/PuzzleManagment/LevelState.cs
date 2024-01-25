@@ -9,12 +9,16 @@ public class LevelState : MonoBehaviour
 
     [SerializeField] GameState[] gameStates;
     [SerializeField] OpenDoor exitDoor;
-    [SerializeField] ScoreHandler scoreHandler;
+    ScoreHandler scoreHandler;
 
     GameManager gameManager;
+    public AudioManager audioManager;
 
-    private void Awake() {
+    private void Awake()
+    {
         gameManager = GameManager.instance;
+        audioManager = AudioManager.instance;
+        scoreHandler = ScoreHandler.instance;
     }
 
     public int GetDifficulty() { return gameManager.difficultyLevel; }
@@ -33,7 +37,8 @@ public class LevelState : MonoBehaviour
         scoreHandler.SetGamesSolvedScore(gamesSolved);
     }
 
-    private void Update() {
+    private void Update()
+    {
         if (gamesSolved == gameStates.Length)
         {
             exitDoor.SetShouldOpen(true);

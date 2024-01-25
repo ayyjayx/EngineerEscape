@@ -163,11 +163,12 @@ public class HanoiGame : GameState
                     RestartButtons();
                 }
             }
-            if (finalTower.Count() == blocks.Count()) SetIsSolved(true);
+            if (finalTower.Count() == 2 + DIFFICULTY) SetIsSolved(true);
         }
         if (GetNeedChecking() && GetIsSolved())
         {
             SolveGame();
+            levelState.audioManager.PlaySFX(levelState.audioManager.success);
         }
     }
 

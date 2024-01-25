@@ -13,7 +13,9 @@ public class GraphNode : MonoBehaviour
     [SerializeField] PuzzlePiece currentPuzzle = null;
     [SerializeField] List<GraphNode> neighbours = new();
     [SerializeField] SlidingPuzzle slidingPuzzle;
-    [SerializeField] int interactableDistance = 5;
+    [SerializeField] int interactableDistance = 8;
+
+    AudioManager audioManager;
 
     public void SetId(int newId) { id = newId; }
     public int GetId() { return id; }
@@ -49,7 +51,11 @@ public class GraphNode : MonoBehaviour
     }
 
     private void OnMouseUpAsButton() {
-        if (!slidingPuzzle.GetIsMoving() && !slidingPuzzle.GetIsSolved() && IsButtonInRange()) { slidingPuzzle.MakeMove(this); }
+        if (IsButtonInRange())
+        {
+            audioManager.PlaySFX(audioManager.button);
+            if (!slidingPuzzle.GetIsMoving() && !slidingPuzzle.GetIsSolved()) { slidingPuzzle.MakeMove(this); }
+        }
     }
 
     private bool IsButtonInRange()
@@ -73,7 +79,13 @@ public class GraphNode : MonoBehaviour
         return null;
     }
 
+    private void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     private void Start() {
+        interactableDistance = 8; // coś sie zepsuło więc na razie na sztywno to ustawiam jeszcze raz :ddddd
         slidingPuzzle = FindObjectOfType<SlidingPuzzle>();
     }
 }
