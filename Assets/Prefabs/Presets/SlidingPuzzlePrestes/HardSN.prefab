@@ -123,6 +123,7 @@ MonoBehaviour:
   neighbours:
   - {fileID: 8357540911912449786}
   - {fileID: 9003129844490895091}
+  - {fileID: 5380431649052317040}
   slidingPuzzle: {fileID: 0}
   interactableDistance: 8
 --- !u!1 &1547177728398364716
@@ -286,8 +287,9 @@ MonoBehaviour:
   id: 0
   currentPuzzle: {fileID: 0}
   neighbours:
-  - {fileID: 8332280723808918090}
+  - {fileID: 5380431649052317040}
   - {fileID: 9003129844490895091}
+  - {fileID: 8332280723808918090}
   slidingPuzzle: {fileID: 0}
   interactableDistance: 8
 --- !u!1 &2781644153313773916
@@ -411,8 +413,9 @@ MonoBehaviour:
   id: 0
   currentPuzzle: {fileID: 0}
   neighbours:
-  - {fileID: 8357540911912449786}
   - {fileID: 5968916556721150604}
+  - {fileID: 5380431649052317040}
+  - {fileID: 8357540911912449786}
   slidingPuzzle: {fileID: 0}
   interactableDistance: 8
 --- !u!1 &3607968368987950189
@@ -536,10 +539,14 @@ MonoBehaviour:
   id: 0
   currentPuzzle: {fileID: 0}
   neighbours:
+  - {fileID: 3114682195194891379}
+  - {fileID: 8357540911912449786}
+  - {fileID: 6709190335520489539}
   - {fileID: 9003129844490895091}
   - {fileID: 5968916556721150604}
+  - {fileID: 2111727084359567526}
   - {fileID: 8332280723808918090}
-  - {fileID: 8357540911912449786}
+  - {fileID: 6624696315440583572}
   slidingPuzzle: {fileID: 0}
   interactableDistance: 8
 --- !u!1 &4553116541831630997
@@ -663,9 +670,9 @@ MonoBehaviour:
   id: 0
   currentPuzzle: {fileID: 0}
   neighbours:
+  - {fileID: 5380431649052317040}
   - {fileID: 3114682195194891379}
   - {fileID: 2111727084359567526}
-  - {fileID: 5380431649052317040}
   slidingPuzzle: {fileID: 0}
   interactableDistance: 8
 --- !u!1 &5997653119377887230
@@ -789,9 +796,9 @@ MonoBehaviour:
   id: 0
   currentPuzzle: {fileID: 0}
   neighbours:
+  - {fileID: 5380431649052317040}
   - {fileID: 6624696315440583572}
   - {fileID: 6709190335520489539}
-  - {fileID: 5380431649052317040}
   slidingPuzzle: {fileID: 0}
   interactableDistance: 8
 --- !u!1 &6016765275342444143
@@ -915,8 +922,9 @@ MonoBehaviour:
   id: 0
   currentPuzzle: {fileID: 0}
   neighbours:
-  - {fileID: 8332280723808918090}
   - {fileID: 5968916556721150604}
+  - {fileID: 5380431649052317040}
+  - {fileID: 8332280723808918090}
   slidingPuzzle: {fileID: 0}
   interactableDistance: 8
 --- !u!1 &6094018703377916744
@@ -1040,9 +1048,9 @@ MonoBehaviour:
   id: 0
   currentPuzzle: {fileID: 0}
   neighbours:
-  - {fileID: 5380431649052317040}
-  - {fileID: 2111727084359567526}
   - {fileID: 6624696315440583572}
+  - {fileID: 2111727084359567526}
+  - {fileID: 5380431649052317040}
   slidingPuzzle: {fileID: 0}
   interactableDistance: 8
 --- !u!1 &6567762160986197703
@@ -1166,8 +1174,8 @@ MonoBehaviour:
   id: 0
   currentPuzzle: {fileID: 0}
   neighbours:
+  - {fileID: 5380431649052317040}
   - {fileID: 3114682195194891379}
   - {fileID: 6709190335520489539}
-  - {fileID: 5380431649052317040}
   slidingPuzzle: {fileID: 0}
   interactableDistance: 8
