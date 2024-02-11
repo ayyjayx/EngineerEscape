@@ -24,5 +24,9 @@ public class SettingsManager : MonoBehaviour
             resolutionSetting.GetResolutions();
             resolutionSetting.AddResolutionsToDropdownMenu();
         }
+#if UNITY_WEBGL
+        GameObject res = GameObject.FindGameObjectWithTag("CheckType");
+        res.SetActive(false);
+#endif
     }
 }

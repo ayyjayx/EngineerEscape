@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Audio
   - DropdownMenu
+  - CheckType
   layers:
   - Default
   - TransparentFX
